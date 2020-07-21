@@ -147,6 +147,13 @@ app.post(`/random`, chectauth , (req, res) => {
 //   res.end();
   // log = "";
 });
+app.get(`/random`, (req, res) => {
+    // console.log(req.pathname);
+    //   console.log(req.headers);
+    res.sendFile(path.join(__dirname, "/public/random/random.html"));
+    //   res.end();
+    // log = "";
+});
 // app.get(`/random/:data`, chectauth, (req, res) => {
 //   // console.log(req.params.data)
 // //   if (req.params.data == log) {

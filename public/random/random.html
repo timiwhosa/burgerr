@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+    <link rel="stylesheet" href="/random/random.css">
+</head>
+<body>
+    <div class="menu" id="menu">
+         <ul>
+            <li><img src="/img/nav/logo.png" alt=""></li>
+            <li onclick="showsection('dashboard'), closeshowminisidenav()" class="row1-li">DASHBOARD</li>
+            <li onclick="showsection('orders'), closeshowminisidenav()" class="row2-li">ORDERS</li>
+            <li onclick="showsection('products'), closeshowminisidenav()" class="row3-li">PRODUCTS</li>
+            <li onclick="showsection('suggestion'), closeshowminisidenav()" class="row4-li">SUGGESTION <br> & <br> CONTACT</li>
+        </ul>
+    </div>
+    <div class="container" >
+        <div class="left">
+            <ul>
+                <li><img src="/img/nav/logo.png" alt=""></li>
+                <li onclick="showsection('dashboard')" class="row1-li">DASHBOARD</li>
+                <li onclick="showsection('orders')" class="row2-li">ORDERS</li>
+                <li onclick="showsection('products')" class="row3-li">PRODUCTS</li>
+                <li onclick="showsection('suggestion')" class="row4-li">SUGGESTION <br> & <br> CONTACT</li>
+                <li id="mini-nav-menu" onclick="showminisidenav()"> <span></span> <span></span> <span></span> </li>
+            </ul>
+        </div>
+        <div class="right" onclick="closeshowminisidenav()">
+            <div class="row1" id="row1">
+                <div class="top">
+                    <div class="top-left">
+                        <div>
+                            <h3>TOTAL VISITS:</h3>
+                            <p id="total-visit">0</p>
+                        </div>
+                        <div>
+                            <h3>TOTAL SALES:</h3>
+                            <p id="total-sales">0</p>
+                        </div>
+                        <div>
+                            <h3>TOTAL REVENUE:</h3>
+                            <p id="total-revenue">0</p>
+                        </div>
+                        <div>
+                            <h3>TOTAL ORDERS:</h3>
+                            <p>
+                                <span>
+                                    <label for="">ORD</label>
+                                    <b id="total-orders">0</b>
+                                </span>
+                                <span>
+                                    <label for="">DEL</label>
+                                    <b id="total-delivered">0</b>
+                                </span>
+                            </p>
+                        </div>
+                        <!-- <div>
+                            <h3>TOTAL VISITS:</h3>
+                            <p>0</p>
+                        </div> -->
+                    </div>
+                    <div class="top-right">
+                        <h3>SITE STATISTICS</h3>
+                        <div class="stats">
+                            <div class="sta-header">
+                                <div class="">PAGE</div>
+                                <div class="">VISITS</div>
+                            </div>
+                            <div class="stats-stats" id="stats-stats"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-bottom">
+                    <div class="div1">
+                        <h3>CLIENT DETAILS</h3>
+                        <div class="client" id="client">
+                            <!-- <div class="">
+                                <div class="cl-name">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+                                <div class="cl-number">080********</div>
+                            </div>
+                            <div class="">
+                                <div class="cl-name">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+                                <div class="cl-number">080********</div>
+                            </div>
+                            <div class="">
+                                <div class="cl-name">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+                                <div class="cl-number">080********</div>
+                            </div>
+                            <div class="">
+                                <div class="cl-name">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+                                <div class="cl-number">080********</div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="div2">
+                        <h3>PRODUCT RANKING</h3>
+                        <div class="prod-r">
+                            <div class="prod">
+                                <img src="/img/product/chicken-Shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500</p>
+                                </div>
+                                <div class="">
+                                    <p>ORDERS</p>
+                                    <p>5000</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/cupcake2.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                                <div class="">
+                                    <p>ORDERS</p>
+                                    <p>5000</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/chicken-Shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                                <div class="">
+                                    <p>ORDERS</p>
+                                    <p>5000</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/bread.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                                <div class="">
+                                    <p>ORDERS</p>
+                                    <p>5000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row2" id="row2">
+                <div class="row2-heading">
+                    <span onclick="showorder(1)" id="sp1">URGENT</span>
+                    <span onclick="showorder(2)" id="sp2">NORMAL</span>
+                    <span onclick="showorder(3)" id="sp3">BOOKING</span>
+                </div>
+                <div class="main-ord" id="ord1">
+                    <!-- <div class="ord">
+                        <div class="not" id="note1"><span></span></div>
+                        <p>
+                            <span>Name: Lorem ipsum dolor sit amet. </span>
+                            <span>Phone: 080********</span>
+                        </p>
+                        <p>
+                            Location: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero temporibus eligendi iste repellendus inventore dolore soluta tenetur fuga natus modi.
+                        </p>
+                        <div class="ord-prod">
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/chicken-Shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/cupcake2.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/bread3.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="total">
+                                Total: N7500
+                            </span>
+                            <button>
+                                Delivered
+                            </button>
+                        </p>
+                    </div>
+                    <div class="ord">
+                        <div class="not" id="note1"><span></span></div>
+                        <p>
+                            <span>Name: Lorem ipsum dolor sit amet. </span>
+                            <span>Phone: 080********</span>
+                        </p>
+                        <p>
+                            Location: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero temporibus eligendi iste repellendus inventore dolore soluta tenetur fuga natus modi.
+                        </p>
+                        <div class="ord-prod">
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/chicken-Shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/cupcake2.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/bread3.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="total">
+                                Total: N7500
+                            </span>
+                            <button>
+                                Delivered
+                            </button>
+                        </p>
+                    </div> -->
+                </div>
+                <div class="main-ord" id="ord2">
+                    <!-- <div class="ord">
+                        <div class="not" id="note1"><span></span></div>
+                        <p>
+                            <span>Name: Lorem ipsum dolor sit amet. </span>
+                            <span>Pnone: 080********</span>
+                        </p>
+                        <p>
+                            Location: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero temporibus eligendi iste repellendus inventore dolore soluta tenetur fuga natus modi.
+                        </p>
+                        <div class="ord-prod">
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/chicken-Shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/cupcake2.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/bread3.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="total">
+                                Total: N7500
+                            </span>
+                            <button>
+                                Delivered
+                            </button>
+                        </p>
+                    </div> -->
+                </div>
+                <div class="main-ord" id="ord3">
+                    <!-- <div class="ord">
+                        <div class="not" id="note1"><span></span></div>
+                        <p>
+                            <span>Name: Lorem ipsum dolor sit amet. </span>
+                            <span>Pnone: 080********</span>
+                        </p>
+                        <p>
+                            Location: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero temporibus eligendi iste repellendus inventore dolore soluta tenetur fuga natus modi.
+                        </p>
+                        <div class="ord-prod">
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/chicken-Shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/cupcake2.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                            <div class="ord-prod-prod">
+                                <img src="/img/product/bread3.jpg" alt="">
+                                <div class="">
+                                    <p>Chicken-Shawarma</p>
+                                    <p>N500 each</p>
+                                </div>
+                                <div class="">
+                                    <p>Quantity</p>
+                                    <p>5</p>
+                                </div>
+                                <div class="">
+                                    <p>Total</p>
+                                    <p>N5000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="total">
+                                Total: N7500
+                            </span>
+                            <button>
+                                Delivered
+                            </button>
+                        </p>
+                    </div> -->
+                </div>
+            </div>
+            <div class="row3" id="row3">
+                <div class="row3-right">
+                    <div class="">
+                        <h3>ADD NEW PRODUCT</h3>
+                        <p>
+                            Category: <br>
+                            <select name="" id="p-select">
+                                <option value="bread">BREAD</option>
+                                <option value="birthday-cupcake">BIRTHDAY-CUPCAKE</option>
+                                <option value="shawarma">SHAWARMA</option>
+                                <option value="cupcake">CUPCAKE</option>
+                            </select>
+                        </p>
+                        <p>
+                            product name: <br>
+                            <input type="text" name="" id="p-name" placeholder="short name">
+                        </p>
+                        <p>
+                            Description: <br>
+                            <textarea name="" id="p-desc" cols="30" rows="10"></textarea>
+                        </p>
+                        <p>
+                            Price: <br>
+                            <input type="number" name="" id="p-price" placeholder="300">
+                        </p>
+                        <p>
+                            product name: <br>
+                            <input type="file" name="" id="p-file" placeholder="">
+                        </p>
+                        <p>
+                            <button onclick="uploadproduct()">SUBMIT</button>
+                        </p>
+                    </div>
+                </div>
+                <div class="row3-left" id="row3-left">
+                    <!-- <div class="row3-prod">
+                        <h3>BREAD</h3>
+                        <div class="scroll-ctn" >
+                            <div class="prod">
+                                <img src="/img/product/bread1.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+
+                            <div class="prod">
+                                <img src="/img/product/bread3.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+
+                            <div class="prod">
+                                <img src="/img/product/bread2.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/bread2.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/bread2.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/bread2.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/bread2.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/bread2.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row3-prod">
+                        <h3>SHAWARMA</h3>
+                        <div class="scroll-ctn">
+                            <div class="prod">
+                                <img src="/img/product/chicken-Shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+
+                            <div class="prod">
+                                <img src="/img/product/Beef-shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+
+                            <div class="prod">
+                                <img src="/img/product/bread1.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/Beef-shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+
+                            <div class="prod">
+                                <img src="/img/product/bread1.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+                            <div class="prod">
+                                <img src="/img/product/Beef-shawarma.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+
+                            <div class="prod">
+                                <img src="/img/product/bread1.jpg" alt="">
+                                <div class="">
+                                    <p>White loaf</p>
+                                    <p>N500</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                
+            </div>
+            <div class="row4" id="row4">
+                <div class="row4-left">
+                    <h3>CONTACT</h3>
+                    <div class="contact" id="contact">
+                        <!-- <div class="">
+                            <p><b>Name:</b> Lorem ipsum dolor sit.</p>
+                            <p class="space"><span><b>Phone: </b>080********</span> <span><b>Time:</b>July 16th,2020, 9:38 pm</span></p>
+                            <p>
+                                <b>Message</b>: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum corporis facilis explicabo, error odit labore reprehenderit enim ex unde dicta praesentium repellendus quia, natus temporibus distinctio laborum consequatur quo cupiditate facere nam possimus incidunt exercitationem consectetur ut. Nesciunt, facilis blanditiis.
+                            </p>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="row4-right">
+                    <h3>SUGGESTION</h3>
+                    <div class="contact" id="suggestion">
+                        <!-- <div class="">
+                            <p><b>Time:</b>July 16th,2020, 9:38 pm</p>
+                            <p>
+                                <b>Message</b>: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum corporis facilis explicabo, error odit labore reprehenderit enim ex unde dicta praesentium repellendus quia, natus temporibus distinctio laborum consequatur quo cupiditate facere nam possimus incidunt exercitationem consectetur ut. Nesciunt, facilis blanditiis.
+                            </p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var mini =1;
+        function showminisidenav(){
+            if(mini == 1){
+                document.getElementById("menu").style.left = 0;
+                mini =2;
+            }
+            else if(mini == 2){
+                document.getElementById("menu").style.left ="-100vw";
+                mini =1;
+            }
+        }
+        function closeshowminisidenav(){
+                document.getElementById("menu").style.left ="-100vw";
+                mini =1;
+
+        }
+        function showorder(index){
+            for(let i =1; i<=3; i++){
+                document.getElementById(`ord${i}`).style.display = "none";
+                document.getElementById(`sp${i}`).style.boxShadow = "none"
+            }
+            document.getElementById(`ord${index}`).style.display = "grid";
+            document.getElementById(`sp${index}`).style.boxShadow = "inset 2px 2px 2px #0000002b, inset -2px -2px 2px rgb(251, 114, 10)"
+            
+    
+        }
+        showorder(1);
+
+        function showsection(section){
+            for(let i =1; i<=4; i++){
+                document.getElementById(`row${i}`).style.display = "none";
+                for(k=0; k<2; k++){
+                    document.getElementsByClassName(`row${i}-li`)[k].style.border = "none"
+                }
+            }
+            if(section == "dashboard"){
+                document.getElementById("row1").style.display ="grid";
+                for(k=0; k<2; k++){
+                    document.getElementsByClassName(`row1-li`)[k].style.borderRight = "8px solid #FF5722"
+                }
+                loadpages()
+            }
+            else if(section == "orders"){
+                document.getElementById("row2").style.display ="grid";
+                for(k=0; k<2; k++){
+                    document.getElementsByClassName(`row2-li`)[k].style.borderRight = "8px solid #FF5722"
+                }
+                loadorder();
+            }
+            else if(section == "products"){
+                document.getElementById("row3").style.display ="grid";
+                for(k=0; k<2; k++){
+                    document.getElementsByClassName(`row3-li`)[k].style.borderRight = "8px solid #FF5722"
+                }
+                loadproduct();
+            }
+            else if(section == "suggestion"){
+                document.getElementById("row4").style.display ="grid";
+                for(k=0; k<2; k++){
+                    document.getElementsByClassName(`row4-li`)[k].style.borderRight = "8px solid #FF5722"
+                }
+                loadcontact();
+            }
+        }
+        showsection("dashboard");
+        
+
+
+        function loadcontact(){
+            var url = "/contactt";
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: ""
+                };
+            fetch(url, option).then((dat)=>{ return dat.json()}).then((json)=>{
+                appendcont(json.contact)
+                appendsuggest(json.suggestion)
+            }).catch((err)=> console.log(err))
+        }
+
+        function appendcont(data){
+            var contact = document.getElementById("contact");
+            contact.innerHTML="";
+            for(let ct =0; ct<data.length; ct++){
+                var div = document.createElement("div");
+                div.innerHTML ="";
+                var p1 = document.createElement("p");
+                var p2 = document.createElement("p");
+                var p3 = document.createElement("p");
+                var b1 = document.createElement("b");
+                var b2 = document.createElement("b");
+                var b3 = document.createElement("b");
+                var b4 = document.createElement("b");
+                var span1 = document.createElement("span");
+                var span2 = document.createElement("span");
+                var span3 = document.createElement("span");
+                var span4 = document.createElement("span");
+                var span5 = document.createElement("span");
+                var span6 = document.createElement("span");
+
+                b1.textContent="Name:";
+                b2.textContent="Phone:";
+                b3.textContent="Time:";
+                b4.textContent="Message:";
+
+                span1.textContent= data[ct].name;
+                span2.textContent = data[ct].phone;
+                span3.textContent = data[ct].time;
+                span4.textContent = data[ct].message;
+
+                span5.appendChild(b2);
+                span5.appendChild(span2);
+                span6.appendChild(b3);
+                span6.appendChild(span3);
+
+                p1.appendChild(b1);
+                p1.appendChild(span1);
+                p2.setAttribute("class","space");
+                p2.appendChild(span5);
+                p2.appendChild(span6);
+                p3.appendChild(b4);
+                p3.appendChild(span4);
+                div.appendChild(p1)
+                div.appendChild(p2)
+                div.appendChild(p3)
+                contact.appendChild(div);           
+            }
+        }
+        function appendsuggest(data){
+            var contact = document.getElementById("suggestion");
+            contact.innerHTML="";
+            for(let ct =0; ct<data.length; ct++){
+                var div = document.createElement("div");
+                div.innerHTML ="";
+                var p2 = document.createElement("p");
+                var p3 = document.createElement("p");
+                var b3 = document.createElement("b");
+                var b4 = document.createElement("b");
+                var span3 = document.createElement("span");
+                var span4 = document.createElement("span");
+                var span6 = document.createElement("span");
+
+                b3.textContent="Time:";
+                b4.textContent="Message:";
+
+                span3.textContent = data[ct].time;
+                span4.textContent = data[ct].message;
+
+                span6.appendChild(b3);
+                span6.appendChild(span3);
+
+                p2.appendChild(span6);
+                p3.appendChild(b4);
+                p3.appendChild(span4);
+                div.appendChild(p2)
+                div.appendChild(p3)
+                contact.appendChild(div);           
+            }
+        }
+
+
+    // product section
+     function uploadproduct(){
+            // var url2 = "/archive/upload/data?type=pq";
+            var category = document.getElementById("p-select" ).value;
+            var name = document.getElementById("p-name").value;
+            var description = document.getElementById("p-desc").value;
+            var price = document.getElementById("p-price" ).value;
+            var file = document.getElementById("p-file").files[0];
+            
+            const formdata = new FormData();
+            formdata.append("product", file);
+            // console.log(formdata);
+            if(category.trim()!="" && name.trim()!="" && description.trim()!="" && price.trim()!="" && file.size <=30000000){
+                var urll = `/newproduct?category=${category}&name=${name}&description=${description}&price=${price}`;
+                fetch(urll, {
+                    method: "POST",
+                    body: formdata
+                })
+                .then((res)=>{
+                        return res.json();
+                }).then((json)=>{
+                    loadproduct();
+                    alert(json.message);
+                }).catch(console.error);
+            }
+            else{
+                alert("pls fill form correctly and make sure file size is less than 30mb")
+            }
+        }
+    function loadproduct(){
+        var url = "/products";
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body:""
+                };
+            fetch(url, option).then((dat)=>{ return dat.json()}).then((json)=>{
+                appendprod(json)
+            }).catch((err)=> console.log(err))
+    }
+    
+
+    function appendprod(data){
+        var div = document.getElementById("row3-left");
+        div.innerHTML ="";
+        for(let i =0; i<data.all.length; i++){
+            var h = data.all[i];
+            var div1 = document.createElement("div");
+            div1.setAttribute("class","row3-prod");
+            var h3 = document.createElement("h3");
+            h3.textContent = h;
+            var div2 = document.createElement("div");
+            div2.setAttribute("class","scroll-ctn");
+            for(let j =0; j<data[h].length; j++){
+
+                var div3 = document.createElement("div");
+                div3.setAttribute("class","prod");
+                
+                var img1 = document.createElement("img");
+                img1.setAttribute("src",data[h][j].image);
+
+                var div4 = document.createElement("div");
+                var p1 = document.createElement("p");
+                var p2 = document.createElement("p");
+
+                p1.textContent = data[h][j].name;
+                p2.textContent = "N" + data[h][j].price;
+
+                div4.appendChild(p1);
+                div4.appendChild(p2);
+                div3.appendChild(img1);
+                div3.appendChild(div4);
+                div2.appendChild(div3);
+            }
+                div1.appendChild(h3)
+                div1.appendChild(div2)
+                div.appendChild(div1);
+        }
+    }
+    
+
+    // ORDER SECTION
+
+    function loadorder(){ 
+        var url = "/order";
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body:""
+                };
+            fetch(url, option).then((dat)=>{ return dat.json()}).then((json)=>{
+                // appendprod(json)
+                loadurg(json.urgent)
+                loadnorm(json.normal)
+                loadbooking(json.booking)
+            }).catch((err)=> console.log(err))
+    }
+
+    // function appendorder(data){
+
+    // }
+    function loadurg(data){
+        var div = document.getElementById("ord1");
+        div.innerHTML="";
+        // console.log(data)
+        for(let i =0; i< data.length; i++){
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            // var div4 = document.createElement("div");
+
+            
+            var span1 = document.createElement("span");//done
+            var span2 = document.createElement("span");//done
+            var span3 = document.createElement("span");//done
+            var span4 = document.createElement("span");//done
+            
+            var b1 = document.createElement("button");
+            b1.setAttribute("onclick",`delivered("urgent",${data[i].id})`);
+            b1.textContent = "Delivered";
+            
+            var p1 = document.createElement("p");
+            var p2 = document.createElement("p");
+            var p3 = document.createElement("p");
+            var p4 = document.createElement("p");
+
+            div1.setAttribute("class", "ord");
+            div2.setAttribute("class", "not");
+            div2.setAttribute("id", `urgent${data[i].id}`);
+            div3.setAttribute("class", "ord-prod");
+            // console.log(data[i].delivered)
+            span4.setAttribute("class", "total");
+
+            span2.textContent = "Name:";
+            span2.textContent += data[i].name;
+            span3.textContent = "Phone:";
+            span3.textContent += data[i].phone;
+            span4.textContent = "Total: ";//comeback and calc total
+
+            
+            p1.appendChild(span2);
+            p1.appendChild(span3);
+            p2.textContent = "Deadline:";
+            p2.textContent += data[i].deadline;
+            p3.textContent = "Location:";
+            p3.textContent += data[i].location;
+            p4.appendChild(span4);
+            p4.appendChild(b1);
+
+            
+            div2.appendChild(span1);
+            var h =0;
+            for(let p =0; p< data[i].allproduct.length; p++){
+                
+                var div5 = document.createElement("div");
+                var div6 = document.createElement("div");
+                var div7 = document.createElement("div");
+                var div8 = document.createElement("div");
+
+                
+                var p5 = document.createElement("p");
+                var p6 = document.createElement("p");
+                var p7 = document.createElement("p");
+                var p8 = document.createElement("p");
+                var p9 = document.createElement("p");
+                var p10 = document.createElement("p");
+                
+                var img = document.createElement("img");
+                img.setAttribute("src", data[i].product[data[i].allproduct[p]].img )
+
+                div5.setAttribute("class", "ord-prod-prod");
+
+                p5.textContent = data[i].product[data[i].allproduct[p]].description;
+                p6.textContent = "N";
+                p6.textContent += data[i].product[data[i].allproduct[p]].price;
+                p6.textContent += " each";
+                p7.textContent = "Quantity";
+                p8.textContent = data[i].product[data[i].allproduct[p]].incart;
+                p9.textContent = "Total";
+                p10.textContent = "N"+ data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price;
+
+                h+= parseInt( data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price);
+                
+                div6.appendChild(p5)
+                div6.appendChild(p6)
+                div7.appendChild(p7)
+                div7.appendChild(p8)
+                div8.appendChild(p9)
+                div8.appendChild(p10)
+
+                
+                div5.appendChild(img)
+                div5.appendChild(div6)
+                div5.appendChild(div7)
+                div5.appendChild(div8)
+                div3.appendChild(div5);
+                // console.log(data[i].product[data[i].allproduct[p]]);
+
+            }
+            span4.innerHTML += h;
+            div1.appendChild(div2);
+            div1.appendChild(p1);
+            div1.appendChild(p2);
+            div1.appendChild(p3);
+            div1.appendChild(div3);
+            div1.appendChild(p4);
+            div.appendChild(div1);
+            if(data[i].delivered == true){
+                checkdelivered("urgent",data[i].id)
+            }
+        }
+    }
+
+    function loadnorm(data){
+        var div = document.getElementById("ord2");
+        div.innerHTML="";
+        // console.log(data)
+        for(let i =0; i< data.length; i++){
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            // var div4 = document.createElement("div");
+
+            
+            var span1 = document.createElement("span");//done
+            var span2 = document.createElement("span");//done
+            var span3 = document.createElement("span");//done
+            var span4 = document.createElement("span");//done
+            
+            var b1 = document.createElement("button");
+            b1.setAttribute("onclick",`delivered("normal",${data[i].id})`);
+            b1.textContent = "Delivered";
+            
+            var p1 = document.createElement("p");
+            var p2 = document.createElement("p");
+            var p3 = document.createElement("p");
+            var p4 = document.createElement("p");
+
+            div1.setAttribute("class", "ord");
+            div2.setAttribute("class", "not");
+            div2.setAttribute("id", `normal${data[i].id}`);
+            div3.setAttribute("class", "ord-prod");
+
+            span4.setAttribute("class", "total");
+
+            span2.textContent = "Name:";
+            span2.textContent += data[i].name;
+            span3.textContent = "Phone:";
+            span3.textContent += data[i].phone;
+            span4.textContent = "Total: ";//comeback and calc total
+
+            
+            p1.appendChild(span2);
+            p1.appendChild(span3);
+            p2.textContent = "addinfo:";
+            p2.textContent += data[i].addinfo;
+            p3.textContent = "Location:";
+            p3.textContent += data[i].location;
+            p4.appendChild(span4);
+            p4.appendChild(b1);
+
+            
+            div2.appendChild(span1);
+            var h =0;
+            for(let p =0; p< data[i].allproduct.length; p++){
+                
+                var div5 = document.createElement("div");
+                var div6 = document.createElement("div");
+                var div7 = document.createElement("div");
+                var div8 = document.createElement("div");
+
+                
+                var p5 = document.createElement("p");
+                var p6 = document.createElement("p");
+                var p7 = document.createElement("p");
+                var p8 = document.createElement("p");
+                var p9 = document.createElement("p");
+                var p10 = document.createElement("p");
+                
+                var img = document.createElement("img");
+                img.setAttribute("src", data[i].product[data[i].allproduct[p]].img )
+
+                div5.setAttribute("class", "ord-prod-prod");
+
+                p5.textContent = data[i].product[data[i].allproduct[p]].description;
+                p6.textContent = "N";
+                p6.textContent += data[i].product[data[i].allproduct[p]].price;
+                p6.textContent += " each";
+                p7.textContent = "Quantity";
+                p8.textContent = data[i].product[data[i].allproduct[p]].incart;
+                p9.textContent = "Total";
+                p10.textContent = "N"+ data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price;
+
+                h+= parseInt( data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price);
+                
+                div6.appendChild(p5)
+                div6.appendChild(p6)
+                div7.appendChild(p7)
+                div7.appendChild(p8)
+                div8.appendChild(p9)
+                div8.appendChild(p10)
+
+                
+                div5.appendChild(img)
+                div5.appendChild(div6)
+                div5.appendChild(div7)
+                div5.appendChild(div8)
+                div3.appendChild(div5);
+                // console.log(data[i].product[data[i].allproduct[p]]);
+
+            }
+            span4.innerHTML += h;
+            div1.appendChild(div2);
+            div1.appendChild(p1);
+            div1.appendChild(p2);
+            div1.appendChild(p3);
+            div1.appendChild(div3);
+            div1.appendChild(p4);
+            div.appendChild(div1);
+            if(data[i].delivered == true){
+                checkdelivered("normal",data[i].id)
+            }
+        }
+    }
+
+    function loadbooking(data){
+        var div = document.getElementById("ord3");
+        div.innerHTML="";
+        // console.log(data)
+        for(let i =0; i< data.length; i++){
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            // var div4 = document.createElement("div");
+
+            
+            var span1 = document.createElement("span");//done
+            var span2 = document.createElement("span");//done
+            var span3 = document.createElement("span");//done
+            var span4 = document.createElement("span");//done
+            
+            var b1 = document.createElement("button");
+            b1.setAttribute("onclick",`delivered("booking",${data[i].id})`);
+            b1.textContent = "Delivered";
+            
+            var p1 = document.createElement("p");
+            var p2 = document.createElement("p");
+            var p3 = document.createElement("p");
+            var p4 = document.createElement("p");
+
+            div1.setAttribute("class", "ord");
+            div2.setAttribute("class", "not");
+            div2.setAttribute("id", `booking${data[i].id}`);
+            div3.setAttribute("class", "ord-prod");
+
+            span4.setAttribute("class", "total");
+
+            span2.textContent = "Name:";
+            span2.textContent += data[i].name;
+            span3.textContent = "Phone:";
+            span3.textContent += data[i].phone;
+            span4.textContent = "Total: ";//comeback and calc total
+
+            
+            p1.appendChild(span2);
+            p1.appendChild(span3);
+            p2.textContent = "request:";
+            p2.textContent += data[i].request;
+            p3.textContent = "Location:";
+            p3.textContent += data[i].location;
+            p4.appendChild(span4);
+            p4.appendChild(b1);
+
+            
+            div2.appendChild(span1);
+            var h =0;
+            for(let p =0; p< data[i].allproduct.length; p++){
+                
+                var div5 = document.createElement("div");
+                var div6 = document.createElement("div");
+                var div7 = document.createElement("div");
+                var div8 = document.createElement("div");
+
+                
+                var p5 = document.createElement("p");
+                var p6 = document.createElement("p");
+                var p7 = document.createElement("p");
+                var p8 = document.createElement("p");
+                var p9 = document.createElement("p");
+                var p10 = document.createElement("p");
+                
+                var img = document.createElement("img");
+                img.setAttribute("src", data[i].product[data[i].allproduct[p]].img )
+
+                div5.setAttribute("class", "ord-prod-prod");
+
+                p5.textContent = data[i].product[data[i].allproduct[p]].description;
+                p6.textContent = "N";
+                p6.textContent += data[i].product[data[i].allproduct[p]].price;
+                p6.textContent += " each";
+                p7.textContent = "Quantity";
+                p8.textContent = data[i].product[data[i].allproduct[p]].incart;
+                p9.textContent = "Total";
+                p10.textContent = "N"+ data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price;
+
+                h+= parseInt( data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price);
+                
+                div6.appendChild(p5)
+                div6.appendChild(p6)
+                div7.appendChild(p7)
+                div7.appendChild(p8)
+                div8.appendChild(p9)
+                div8.appendChild(p10)
+
+                
+                div5.appendChild(img)
+                div5.appendChild(div6)
+                div5.appendChild(div7)
+                div5.appendChild(div8)
+                div3.appendChild(div5);
+                // console.log(data[i].product[data[i].allproduct[p]]);
+
+            }
+            span4.innerHTML += h;
+            div1.appendChild(div2);
+            div1.appendChild(p1);
+            div1.appendChild(p2);
+            div1.appendChild(p3);
+            div1.appendChild(div3);
+            div1.appendChild(p4);
+            div.appendChild(div1);
+            if(data[i].delivered == true){
+                checkdelivered("booking",data[i].id)
+            }
+        }
+    }
+
+    function delivered(section, id){
+        var del =confirm("Are you sure this order has been delivered");
+        if(del == true){
+            var url = "/delivered/xyz"
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        section, id
+                    })
+                };
+            fetch(url, option).then((res)=>{
+                return res.json(); 
+            }).then((data)=>{
+                if(data.message == "done"){
+                    document.getElementById(`${section + id}`).style.backgroundColor ="green";
+                }
+                else{
+                    alert(data.message);
+                }
+            }).catch((err)=>{
+                console.log(err);
+            });
+        }
+    }
+
+    function checkdelivered(section,id){
+        document.getElementById(`${section + id}`).style.backgroundColor ="green";
+    }
+    
+    //  DASHBOARD
+    function loadpages(){
+            var url = "/visit/xyz";
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body:""
+                };
+            fetch(url, option).then((dat)=>{ return dat.json()}).then((json)=>{
+                loadvisit(json.visit)
+                loadtotal(json);
+                loadclient(json);
+            }).catch((err)=> console.log(err))
+    }
+
+    function loadvisit(data){
+        var site = document.getElementById("stats-stats");
+        site.innerHTML="";
+        for(let i=0; i<data.length; i++){
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+
+            div2.textContent = data[i].page;
+            div3.textContent = data[i].visit;
+
+            div1.appendChild(div2);
+            div1.appendChild(div3);
+            
+            site.appendChild(div1);
+        }
+    }
+
+    function loadtotal(data){
+        document.getElementById("total-visit").innerText = data.totalvisit
+        document.getElementById("total-sales").innerText = data.totalsales
+        document.getElementById("total-revenue").innerText = data.totalrevenue
+        document.getElementById("total-orders").innerText = data.totalorders
+        document.getElementById("total-delivered").innerText = data.totaldelivered
+    }
+    function loadclient(data){
+        var cliet = document.getElementById("client")
+        for(let j =0; j<data.client.length; j++){
+            var d1= document.createElement("div")
+            var d2= document.createElement("div");
+            var d3= document.createElement("div");
+
+            d2.setAttribute("class", "cl-name");
+            d3.setAttribute("class", "cl-number");
+
+            d2.textContent = data.client[j].name;
+            d3.textContent = data.client[j].phone;
+
+            d1.appendChild(d2);
+            d1.appendChild(d3);
+            cliet.appendChild(d1)
+
+
+        }
+    }
+    </script>
+</body>
+</html>

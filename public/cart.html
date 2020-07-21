@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger PAN Bread</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="general-info" id="general-info"></div>
+    <div id="menu" class="menu"></div>
+    <nav> </nav>
+    <div class="container">
+        <div class="cart-div" id="cart-div">
+            <h4>Enjoy your awesome pasteries with your family and friends</h4>
+
+            <div class="emptycart" id="emptycart">
+                <h2>Your cart is empty</h2>
+            </div>
+            <!-- <div class="">
+                <div class="cart-product">
+                    <img src="/img/product/shawarma1.jpg" alt="">
+                    <p>Yummy white loaf</p>
+                    <p>N500 each</p>
+                </div>
+                <div class="cart-div-input">
+                    <span class="inc" id="dec">-</span>
+                    <input type="text" name="" id="product1-no">
+                    <span class="inc" id="dec">+</span>
+                </div>
+                <div class="total">
+                    <p>Total</p>
+                    <p>N<span id="total">5000</span></p>
+                </div>
+            </div> -->
+
+            <div class="sum-total" id="sum-total">Sum Total = <span id="sumtotal">0</span></div>
+
+            <div class="check-out" id="check-out" onclick="ordernow()">ORDER NOW</div>
+        </div>
+
+        <div class="order-cover" id="ordercover" onclick="ordernow()"></div>
+        <div class="order" id="order">
+            <div class="order-div1" id="order-div1">
+                <span class="order-step">1/2</span>
+                <h2>ORDER TYPE</h2>
+                <p>select the best delivery mode that sooths your order.</p>
+                <div class="home-del">
+                    <h4>HOME DELIVERY</h4>
+                    <p>Goods delivered to your door step,</p>
+                    <p>Urgently or not, we are always on time.</p>
+                    <div class="order-btn">
+                        <button onclick=" selectdelmode('urgent')">URGENT <span class="smalltxt">delivery fee of N50</span></button>
+                        <button onclick=" selectdelmode('normal')">NORMAL <span class="smalltxt smalltxt2">free </span></button>
+                    </div>
+                </div>
+                <div class="booking-del">
+                    <h4>BOOKING</h4>
+                    <p>Got an occasion? or need large supplies</p>
+                    <p>We've got you covered</p>
+                    <div>
+                        <button onclick=" selectdelmode('booking')">BOOK NOW</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="order-div1" id="order-div2">
+                <span class="order-step">2/2</span>
+                <h2>ORDER DETAILS</h2>
+                <div class="order-type">
+                    <p>Order type</p>
+                    <form action="">
+                        <select name="order" onchange="modes()" id="order-type">
+                            <option value="normal" >NORMAL</option>
+                            <option value="urgent" >URGENT</option>
+                            <option value="booking" >BOOKING</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="order-type-div">
+                    <div class="order-type-div1" id="order-type-div1">
+                        <form action="#" id="form1">
+                            <div class="top">
+                                <div class="">
+                                    <p>Name:</p>
+                                    <input type="text" name="" id="urgent-name" class="inp-small" placeholder="For reference" required>
+                                </div>
+                                <div class="">
+                                    <p>Phone number:</p>
+                                    <input type="number" name="" id="urgent-phone" class="inp-small" placeholder="080****" required minlength="11">
+                                </div>
+                            </div>
+                            <p>Location</p>
+                            <textarea name="" id="urgent-location" cols="20" rows="4" placeholder="Could be popular building in your area" required></textarea>
+                            <p>Deadline <span class="smalltxt3">between working hours and 30min from request time</span></p>
+                            <input type="time" name="" id="urgent-deadline" class="inp-big" placeholder="8:30am" required>
+
+                            <p><button type="submit">CONFIRM</button></p>
+                        </form>
+                    </div>
+                    <div class="order-type-div1" id="order-type-div2">
+                        <form action="" id="form2">
+                            <div class="top">
+                                <div class="">
+                                    <p>Name:</p>
+                                    <input type="text" name="" id="normal-name" class="inp-small" placeholder="For reference" required>
+                                </div>
+                                <div class="">
+                                    <p>Phone number:</p>
+                                    <input type="number" name="" id="normal-phone" class="inp-small" placeholder="080****" required minlength="11">
+                                </div>
+                            </div>
+                            <p>Location</p>
+                            <textarea name="" id="normal-location" cols="20" rows="4" placeholder="Could be popular building in your area" required></textarea>
+                            <p>Additional info <span class="smalltxt3">comment or instruction</span></p>
+                            <input type="text" name="" id="normal-add-info" class="inp-big" placeholder="short note pls" required>
+
+                            <p><button type="submit">CONFIRM</button></p>
+                        </form>
+                    </div>
+                    <div class="order-type-div1" id="order-type-div3">
+                        <form action="" id="form3">
+                            <div class="top">
+                                <div class="">
+                                    <p>Name:</p>
+                                    <input type="text" name="" id="booking-name" class="inp-small" placeholder="For reference" required>
+                                </div>
+                                <div class="">
+                                    <p>Phone number:</p>
+                                    <input type="number" name="" id="booking-phone" class="inp-small" placeholder="080****" required minlength="11">
+                                </div>
+                            </div>
+                            <p>Location</p>
+                            <textarea name="" id="booking-location" cols="20" rows="2" placeholder="Could be popular building in your area" required></textarea>
+                            <p>Request</p>
+                            <textarea name="" id="booking-request" cols="30" rows="6" placeholder="Say it and we do it" required></textarea>
+                            
+                            <!-- <p>Deadline <span class="smalltxt3">between working hours and 30min from request time</span></p>
+                            <input type="number" name="" id="booking-deadline" class="inp-big" placeholder="8:30am" required> -->
+
+                            <p><button type="submit">CONFIRM</button></p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="/nav.js"></script>
+    <script>
+        function selectdelmode(mode){
+            document.getElementById("order-div1").style.left = "-340px";
+            document.getElementById("order-div2").style.left = "10px";
+            document.getElementById("order").style.height = "496px ";
+            document.getElementById("order-type").value = mode;
+            if(mode =="urgent"){
+                mode1();
+            }
+            else if(mode =="normal"){
+                mode2();
+            }
+            else if(mode =="booking"){
+                mode3();
+            }
+        }
+
+        function modes(){
+            var mode = document.getElementById("order-type").value;
+            if(mode =="urgent"){
+                mode1();
+            }
+            else if(mode =="normal"){
+                mode2();
+            }
+            else if(mode =="booking"){
+                mode3();
+            }
+
+        }
+
+        function mode1(mode){
+            document.getElementById("order-type-div1").style.left = "10px";
+            document.getElementById("order-type-div2").style.left = "340px";
+            document.getElementById("order-type-div3").style.left = "340px";
+        }
+        function mode2(mode){
+            document.getElementById("order-type-div1").style.left = "-340px";
+            document.getElementById("order-type-div2").style.left = "10px";
+            document.getElementById("order-type-div3").style.left = "340px";
+        }
+        function mode3(mode){
+            document.getElementById("order-type-div1").style.left = "-340px";
+            document.getElementById("order-type-div2").style.left = "-340px";
+            document.getElementById("order-type-div3").style.left = "10px";
+        }
+
+
+        // CART
+        function loadcart(){
+            var product = JSON.parse(localStorage.getItem("cartproduct"));
+            var allproduct = JSON.parse(localStorage.getItem("allproducts"));
+            var cartdiv = document.getElementById("cart-div");
+            var sumtotal = document.getElementById("sum-total");
+            // console.log(product);
+            if(product){
+                document.getElementById("check-out").style.display = "flex";
+                document.getElementById("emptycart").style.display = "none";
+                for(i=0; i<allproduct.length; i++){
+                var html = document.createElement("div");
+                html.setAttribute("id", `product${i+1}`)
+                    
+                    html.innerHTML = `
+                                <div class="cart-product">
+                                    <img src="${product[allproduct[i]].img}" alt="burger house| burger bread ${product[allproduct[i]].img}">
+                                    <p>${product[allproduct[i]].description}</p>
+                                    <p>N${product[allproduct[i]].price} each</p>
+                                </div>
+                                <div class="cart-div-input">
+                                    <span class="inc" id="dec" onclick="cartrange(${i+1},'${allproduct[i]}', 'decrease')">-</span>
+                                    <input type="text" name="" id="no-of${i+1}" oninput="cartrange(${i+1},'${allproduct[i]}', 'auto')" value="${product[allproduct[i]].incart}">
+                                    <span class="inc" id="dec" onclick="cartrange(${i+1}, '${allproduct[i]}', 'increase')">+</span>
+                                </div>
+                                <div class="total">
+                                    <p>Total</p>
+                                    <p>N<span id="total${i+1}">${product[allproduct[i]].price * product[allproduct[i]].incart}</span></p>
+                                </div>    
+                    `
+                    cartdiv.insertBefore(html, sumtotal);
+                }
+                // carttotal();
+            }
+        }
+        loadcart();
+        function empty(){ 
+            var catno = parseInt(localStorage.getItem("noincart"));      
+            if(catno==0){
+                
+                document.getElementById("check-out").style.display = "none";
+                document.getElementById("emptycart").style.display = "flex";
+            }
+        }
+        function cartrange(index, tag, action){
+            var product = JSON.parse(localStorage.getItem("cartproduct"));
+            var allproduct = JSON.parse(localStorage.getItem("allproducts"));
+            var catno = parseInt(localStorage.getItem("noincart"));
+            var cartdiv = document.getElementById("cart-div");
+            if(product){
+                if(action == "decrease"){
+                    if(catno && product[tag].incart-1> 0){
+                        product[tag].incart -=1;
+                        localStorage.setItem("cartproduct", JSON.stringify(product, null,2));
+                        localStorage.setItem("noincart", catno - 1);
+                        carttotal();
+                        document.getElementById(`no-of${index}`).value = product[tag].incart;
+                        document.getElementById(`total${index}`).innerHTML = product[tag].incart * product[tag].price ;
+                        // console.log("dec")
+                    }
+                    else if(product[tag].incart -1 ==0){
+                        var ans = confirm("Do you want to remove this item");
+                        if(ans==true){
+                            for(let i =0; i<allproduct.length; i++){
+                                if(allproduct[i]=== tag){
+                                    allproduct.splice(i, 1);
+                                }
+                            }
+                            delete product[tag];
+                            document.getElementById(`product${index}`).style.display = "none";
+                            localStorage.setItem("allproducts", JSON.stringify(allproduct, null,2));
+                            localStorage.setItem("cartproduct", JSON.stringify(product, null,2));
+                            localStorage.setItem("noincart", catno - 1);
+                            carttotal();
+                        }
+                        else{
+                            product[tag].incart = 1;
+                            localStorage.setItem("cartproduct", JSON.stringify(product, null,2));
+                            // localStorage.setItem("noincart", catno - 1);
+                            carttotal();
+                            document.getElementById(`no-of${index}`).value = product[tag].incart;
+                            document.getElementById(`total${index}`).innerHTML = product[tag].incart * product[tag].price ;
+                        }
+                    }
+                }
+                else if(action== 'increase'){
+                    product[tag].incart +=1;
+                    localStorage.setItem("cartproduct", JSON.stringify(product, null,2));
+                    localStorage.setItem("noincart", catno + 1);
+                    carttotal();
+                    // console.log("inc");
+                    document.getElementById(`no-of${index}`).value = product[tag].incart;
+                    document.getElementById(`total${index}`).innerHTML = product[tag].incart * product[tag].price ;
+                    
+                }
+                else if(action== 'auto'){
+                    var currentval = parseInt(document.getElementById(`no-of${index}`).value);
+                    // console.log(currentval);
+                    document.getElementById(`total${index}`).innerHTML = currentval * product[tag].price ;
+                    var toincart =parseInt( currentval -  product[tag].incart);
+                    if(toincart ){
+                        if(currentval>0){
+                            product[tag].incart = currentval;
+                            localStorage.setItem("cartproduct", JSON.stringify(product, null,2));
+                            localStorage.setItem("noincart", catno+ toincart);
+                            carttotal();
+                        }
+                        else if(currentval == 0){
+                            var ans = confirm("Do you want to remove this item");
+                            if(ans==true){
+                                allproduct.splice(tag,1);
+                                delete product[tag];
+                                document.getElementById(`product${index}`).style.display = "none";
+                                localStorage.setItem("allproducts", JSON.stringify(allproduct, null,2));
+                                localStorage.setItem("cartproduct", JSON.stringify(product, null,2));
+                                localStorage.setItem("noincart", catno + toincart);
+                                carttotal();
+                            }
+                            else{
+                                currentval = 1;
+                                document.getElementById(`total${index}`).innerHTML = currentval * product[tag].price ;
+                                toincart =parseInt( currentval -  product[tag].incart);
+                                product[tag].incart = 1;
+                                localStorage.setItem("cartproduct", JSON.stringify(product, null,2));
+                                localStorage.setItem("noincart", catno + toincart);
+                                carttotal();
+                                document.getElementById(`no-of${index}`).value = product[tag].incart;
+                                document.getElementById(`total${index}`).innerHTML = product[tag].incart * product[tag].price ;
+                            }
+                        }
+                    }
+                    noincart();
+                }
+                
+                // console.log(product)
+            }
+        }
+        function noincart(){
+            var nobefore = parseInt(localStorage.getItem("noincart"));
+            // console.log( nobefore);
+            if(nobefore){
+                document.getElementById("cartno").innerHTML = nobefore;
+                document.getElementById("cartno2").innerHTML = nobefore;
+            }
+            else{
+                document.getElementById("cartno").innerHTML = 0;
+                document.getElementById("cartno2").innerHTML = 0;
+            }
+        }
+        
+        function carttotal(){
+            var product = JSON.parse(localStorage.getItem("cartproduct"));
+            var allbook = JSON.parse(localStorage.getItem("allproducts"));
+            if(product){
+                var total = 0;
+                for(i=0; i<allbook.length; i++){
+                    total += parseInt(product[allbook[i]].incart * product[allbook[i]].price)
+                }
+                document.getElementById("sumtotal").innerHTML = total;
+                noincart();
+            }
+            empty();
+        }
+        carttotal();
+
+        var ord = 1;
+        function ordernow(){
+            if(ord==1){
+                document.getElementById("order").style.display = "block";
+                document.getElementById("ordercover").style.display = "block";
+                ord=2;
+            }
+            else if(ord==2){
+                document.getElementById("order").style.display = "none";
+                document.getElementById("ordercover").style.display = "none";
+                ord=1;
+            }
+
+        }
+        
+        document.getElementById("form1").addEventListener("submit", function urgentreq(e){
+            e.preventDefault();
+            var name = document.getElementById("urgent-name").value;
+            var phone = document.getElementById("urgent-phone").value;
+            var location = document.getElementById("urgent-location").value;
+            var deadline = document.getElementById("urgent-deadline").value;
+            var product = JSON.parse(localStorage.getItem("cartproduct"));
+            var allproduct = JSON.parse(localStorage.getItem("allproducts"));
+
+            var url = "/order/urgent"
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        name, phone,location, deadline, product,allproduct
+                    })
+                }
+            fetch(url, option).then((res)=>{
+                return res.json();
+            }).then((data)=>{
+                alert(data.message);
+            }).catch((err)=>{
+                console.log(err);
+            })
+        });
+
+        document.getElementById("form2").addEventListener("submit", function normalreq(e){
+            e.preventDefault();
+            var name = document.getElementById("normal-name").value;
+            var phone = document.getElementById("normal-phone").value;
+            var location = document.getElementById("normal-location").value;
+            var addinfo = document.getElementById("normal-add-info").value;
+            var product = JSON.parse(localStorage.getItem("cartproduct"));
+            var allproduct = JSON.parse(localStorage.getItem("allproducts"));
+
+            var url = "/order/normal"
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        name, phone,location, addinfo, product,allproduct
+                    })
+                }
+            fetch(url, option).then((res)=>{
+                return res.json();
+            }).then((data)=>{
+                alert(data.message);
+            }).catch((err)=>{
+                console.log(err);
+            })
+        });
+
+        document.getElementById("form3").addEventListener("submit", function bookingreq(e){
+            e.preventDefault();
+            var name = document.getElementById("booking-name").value;
+            var phone = document.getElementById("booking-phone").value;
+            var location = document.getElementById("booking-location").value;
+            var request = document.getElementById("booking-request").value;
+            var product = JSON.parse(localStorage.getItem("cartproduct"));
+            var allproduct = JSON.parse(localStorage.getItem("allproducts"));
+
+            var url = "/order/booking"
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        name, phone,location, request, product,allproduct
+                    })
+                }
+            fetch(url, option).then((res)=>{
+                return res.json();
+            }).then((data)=>{
+                alert(data.message);
+            }).catch((err)=>{
+                console.log(err);
+            })
+        });
+ </script>
+<!-- script -->
+    <script src="/index.js"></script>
+</body>
+</html>

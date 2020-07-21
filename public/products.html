@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger PAN Bread || Product</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="general-info" id="general-info"></div>
+    <div id="menu" class="menu"></div>
+    <nav> </nav>
+    <div class="container">
+
+        <div class="awe">
+            Stay Home Stay safe, we will Deliver your Order right to your door step
+        </div>
+        <div class="products-div" id="products-div">
+                <!-- <div class="product">
+                    <div class="product-img-div">
+                        <a href="/single">
+                            <img src="/img/product/bread1.jpg" alt="">
+                        </a>
+                        <span id="addtocart" class="addtocart" onclick="addtocart('bread','yummy bread','500',1,'/img/product/bread1.jpg')"> &#128722;</span>
+                    </div>
+                    <div class="description">Yummy white Loaf</div>
+                    <div class="price">N500</div>
+                </div>
+            <div class="product">
+                <div class="product-img-div">
+                    <img src="/img/product/bread2.jpg" alt="">
+                    <span id="addtocart" class="addtocart" onclick="addtocart('bread','yummy bread','500',2, '/img/product/bread2.jpg')"> &#128722;</span>
+                </div>
+                <div class="description">Yummy white Loaf</div>
+                <div class="price">N500</div>
+            </div>
+            <div class="product">
+                <div class="product-img-div">
+                    <img src="/img/product/cupcake1.jpg" alt="">
+                    <span id="addtocart" class="addtocart" onclick="addtocart('bread','yummy bread','500',3, '/img/product/cupcake1.jpg')"> &#128722;</span>
+                </div>
+                <div class="description">Yummy white Loaf</div>
+                <div class="price">N500</div>
+            </div>
+            <div class="product">
+                <div class="product-img-div">
+                    <img src="/img/product/cupcake2.jpg" alt="">
+                    <span id="addtocart" class="addtocart"> &#128722;</span>
+                </div>
+                <div class="description">Yummy white Loaf</div>
+                <div class="price">N500</div>
+            </div>
+            <div class="product">
+                <div class="product-img-div">
+                    <img src="/img/product/shawarma1.jpg" alt="">
+                    <span id="addtocart" class="addtocart"> &#128722;</span>
+                </div>
+                <div class="description">Yummy white Loaf</div>
+                <div class="price">N500</div>
+            </div>
+            <div class="product">
+                <div class="product-img-div">
+                    <img src="/img/product/shawarma2.jpg" alt="">
+                    <span id="addtocart" class="addtocart"> &#128722;</span>
+                </div>
+                <div class="description">Yummy white Loaf</div>
+                <div class="price">N500</div>
+            </div> -->
+        </div>
+
+        <h3>Other Delicious Pastries</h3>
+        <div class="other-products-div" id="other-products-div"></div>
+    </div>
+
+     <!-- script -->
+    <script src="/index.js"></script>
+    <script src="/nav.js"></script>
+
+    <script>
+        var prod = window.location.pathname.split("/")[2];
+        var j ="";
+        var prod2 = "";
+        var all2="";
+        var others = [];
+        var hl = [];
+        function fetchproduct(){
+            var url = `/products`;
+            var h = new Headers();
+            h.append("Accept", "application/json");
+            var req = new Request({
+                method:"get",
+                headers: h,
+                mode:"cors"
+            });
+
+            fetch(url,req).then((res)=>{
+                return res.json();
+            }).then((data)=>{
+                j = data;
+                // console.log(data)
+                loadprod(data[prod])
+                // // console.log(data);
+                prod2 = data;
+                delete prod2[prod];
+                all2 = data.all;
+                var ind = prod2.all.indexOf(`${prod}`);
+                all2.splice(ind,1);
+                // console.log(prod2);
+                othersfill(prod2, all2)
+            }).catch((err)=>{
+                console.log(err);
+            })
+        }
+        fetchproduct();
+
+        function loadprod(data){
+            var productDiv = document.getElementById("products-div");
+            for(let i = 0; i<data.length; i++){
+                productDiv.innerHTML += `
+                <div class="product">
+                    <div class="product-img-div">
+                        <a href="/single/${data[i].type}/${data[i].name.replace(/s\g/,"%20")}/${data[i].id}">
+                            <img src="${data[i].image}" alt="burger house| burger bread ${data[i].image}">
+                        </a>
+                        <span id="addtocart" class="addtocart" onclick="addtocart('${data[i].type}','${data[i].name}','${data[i].price}',${data[i].id},'${data[i].image}')"> &#128722;</span>
+                    </div>
+                    <div class="description">${data[i].name}</div>
+                    <div class="price">N${data[i].price}</div>
+                </div>`;
+            }
+        }
+
+        function loadothers(data){
+            var productDiv = document.getElementById("other-products-div");
+            for(let i = 0; i<data.length; i++){
+                productDiv.innerHTML += `
+                <div class="product">
+                    <div class="product-img-div">
+                        <a href="/single/${data[i].type}/${data[i].name.replace(/s\g/,"%20")}/${data[i].id}">
+                            <img src="${data[i].image}" alt="burger house| burger bread ${data[i].image}">
+                        </a>
+                        <span id="addtocart" class="addtocart" onclick="addtocart('${data[i].type}','${data[i].name}','${data[i].price}',${data[i].id},'${data[i].image}')"> &#128722;</span>
+                    </div>
+                    <div class="description">${data[i].name}</div>
+                    <div class="price">N${data[i].price}</div>
+                </div>`;
+            }
+        }
+
+        function myran(l, y) {
+            let one = y + 1;
+            let two = Math.random() * one;
+            let result = Math.floor(two) + l;
+            // console.log("result:", result);
+            return result;
+        }
+
+        function othersfill(data, all2){
+            // function helo(){
+            for(let i = 0; i<all2.length; i++){
+                for(let j = 0; j<4; j++){
+                    others.push(data[all2[i]][j])
+                }
+            }
+            // console.log(others);
+            var hh = others.length
+
+            for (let m =0; m< hh; m++){
+                var used =  myran(0, others.length -1);
+                // console.log(used);
+                hl.push(others[used]);
+                // console.log(others[used]);
+                others.splice(used, 1);
+                // console.log(others);
+            }
+            loadothers(hl);
+        }
+
+
+        function addtocart(category,description,price,id, img){
+            var tag = category + id;
+            allproduct(tag);
+            var cartproduct = JSON.parse(localStorage.getItem("cartproduct"));
+            if(cartproduct){
+                if(cartproduct[tag] != undefined){
+                    cartproduct[tag].incart += 1;
+                    localStorage.setItem("cartproduct", JSON.stringify(
+                   cartproduct, null ,2));
+                }
+                else{
+                    cartproduct[tag] = {
+                        category,
+                        description,
+                        price,
+                        id,
+                        img,
+                        incart: 1
+                    }
+                    localStorage.setItem("cartproduct", JSON.stringify(
+                   cartproduct, null ,2));
+                }
+                incartno()
+            }
+            else{
+                data = {
+                    category,
+                    description,
+                    price,
+                    id,
+                    img,
+                    incart: 1
+                }
+                localStorage.setItem("cartproduct", JSON.stringify(
+                   { [tag] : data}, null ,2));
+                   incartno()
+            }
+        }
+
+        function incartno(){
+            var catno = parseInt(localStorage.getItem("noincart"));
+            if(catno){
+                localStorage.setItem("noincart", catno + 1);
+                noincart();
+            }
+            else{
+                localStorage.setItem("noincart",1);
+                noincart();
+            }
+        }
+
+        function noincart(){
+            var nobefore = parseInt(localStorage.getItem("noincart"));
+            // console.log( nobefore);
+            if(nobefore){
+                document.getElementById("cartno").innerHTML = nobefore;
+                document.getElementById("cartno2").innerHTML = nobefore;
+            }
+            else{
+                document.getElementById("cartno").innerHTML = 0;
+                document.getElementById("cartno2").innerHTML = 0;
+            }
+        }
+        noincart();
+
+        function allproduct(product){
+            var allproduct = JSON.parse(localStorage.getItem("allproducts"));
+            // console.log("allproduct",allproduct)
+            if(allproduct){
+                var test = allproduct.filter((bk)=>{
+                    return bk == product;
+                });
+                    // console.log("test", test)
+                if(test.length == 0){
+                    allproduct.push(product);
+                    // console.log(allproduct)
+                    localStorage.setItem("allproducts",JSON.stringify(allproduct));
+                }
+
+            }
+            else{
+                localStorage.setItem("allproducts",JSON.stringify([product]));
+            }
+        }
+    </script>
+</body>
+</html>

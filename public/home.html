@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger PAN Bread</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="general-info" id="general-info"></div>
+    <div id="menu" class="menu"></div>
+    <nav> </nav>
+
+    <div class="slider" id="slider">
+        <img src="/img/product/cupcake2.jpg" alt="burger house| burger bread cupcake" id="slider-img1">
+        <img src="/img/product/Chicken-Shawarma.jpg" alt="burger house| burger bread shawarma" id="slider-img2">
+        <img src="/img/product/bread.jpg" alt="burger house| burger bread loaf/bread" id="slider-img3">
+        <div class="slider-description">
+            <div class="">
+                <h3>BURGER PAN BREAD</h3>
+                <ul>
+                    <li>
+                        Share love with family and friends
+                    </li>
+                    <li>
+                        Memories that never fade
+                    </li>
+                    <li>
+                        It's more than just a bread.... It's a passion
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3>WHAT WE OFFER</h3>
+        <div class="content">
+            <div class="product-offered">
+                <a href="/product/bread"><p class="product-offered-title">Bread</p>
+                <div class="product-offered-img">
+                 <p class="desc">Check it now</p></div></a>
+            </div>
+
+            <div class="product-offered">
+                <a href="/product/birthday-cupcake"><p class="product-offered-title">Birthday Cup cakes</p>
+                <div class="product-offered-img">
+                 <p class="desc">Check it now</p></div></a>
+            </div>
+
+            <div class="product-offered">
+                <a href="/product/shawarma"><p class="product-offered-title">Shawarma</p>
+                <div class="product-offered-img">
+                 <p class="desc">Check it now</p></div></a>
+            </div>
+
+            <div class="product-offered">
+                <a href="/product/cupcake"><p class="product-offered-title">Cup cakes</p>
+                <div class="product-offered-img">
+                 <p class="desc">Check it now</p></div></a>
+            </div>
+        </div>
+        <div class="services">
+            <h3>Our Services</h3>
+            <div class="our-services">
+                <ul>
+                    <li>
+                        Point of sale (POS)
+                    </li>
+                    <li>
+                        Bulk order
+                    </li>
+                    <li>
+                        Home Delivery
+                    </li>
+                    <li>
+                        Proximity shopping
+                    </li>
+                    <li>
+                        Desserts
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="contact-us" id="contact">
+            <h3>Contact us</h3>
+            <div class="" style="margin: 10vh 0;text-align: center;">
+                <h4 style="padding: 10px 0;">We Really love to hear from you</h4>
+                <p>Your opinion matters to us</p>
+            </div>
+            <div class="contact-details">
+                <p><a href="tel:08034289463">Tel: 08034289463</a></p>
+                <p><a href="tel:08034331871">Tel: 08034331871</a></p>
+                <p><a href="https://burgerhouse@yahoo.com">burgerhouse@yahoo.com</a></p>
+            </div>
+            <br>
+            <p style="text-align: center;font-size: 20px; font-weight: 600;color: #FF5722;">OR</p>
+            <br>
+            <div class="contact-us-div">
+                <p style="font-size: 17px; font-weight: 600;">Leave us a message</p>
+                <div class="">
+                    <div class="">
+                        <p>Name:</p>
+                        <input type="text" name="" id="name" placeholder="Name pls" maxlength="30">
+                    </div>
+                    <div class="">
+                        <p>Phone number:</p>
+                        <input type="number" name="" id="phone" placeholder="080******" maxlength="16">
+                    </div>
+                </div>
+                <textarea name="" id="contact-message" cols="20" rows="10" placeholder="Message" maxlength="700"></textarea>
+                <button onclick="contactus()">Submit</button>
+            </div>
+        </div>
+
+        <div class="contact-us" id="suggetion">
+            <h3>Suggestion</h3>
+            <div class="" style="margin: 10vh 0;text-align: center; padding: 0 2vw;">
+                <h4 style="padding: 10px 0;">Who says we don't like improvement</h4>
+                <br>
+                <p>your Suggestion(s) is/are highly welcome</p>
+            </div>
+            <div class="contact-us-div">
+                <textarea name="" id="suggestion-message" cols="20" rows="10" placeholder="Message" maxlength="700"></textarea>
+                <button onclick="suggestion()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <script>
+        var slide1 = document.querySelector("#slider-img1");
+        var slide2 = document.querySelector("#slider-img2");
+        var slide3 = document.querySelector("#slider-img3");
+        var slide =1;
+        function slider(){
+            
+            if(slide==1){
+
+                slide3.style.left = "-100%";
+                slide3.style.zIndex = "1";
+                slide3.style.visibility = "hidden";
+                
+                slide2.style.left = "0";
+                slide2.style.zIndex = "5";
+                slide2.style.visibility = "visible";
+
+                slide1.style.left = "100%";
+                slide1.style.zIndex = "3";
+                slide1.style.visibility = "hidden";
+                slide=2;
+
+                
+            }
+            
+            else if(slide==2){
+                slide2.style.left = "-100%";
+                slide2.style.zIndex = "1";
+                slide2.style.visibility = "hidden";
+
+                slide1.style.left = "0";
+                slide1.style.zIndex = "5";
+                slide1.style.visibility = "visible";
+
+                slide3.style.left = "100%";
+                slide3.style.zIndex = "3";
+                slide3.style.visibility = "hidden";
+                slide=3;
+            }
+
+            else if(slide==3){
+                slide1.style.left = "-100%";
+                slide1.style.zIndex = "1";
+                slide1.style.visibility = "hidden";
+
+                slide2.style.left = "100%";
+                slide2.style.zIndex = "3";
+                slide2.style.visibility = "hidden";
+
+                slide3.style.left = "0";
+                slide3.style.zIndex = "5";
+                slide3.style.visibility = "visible";
+                slide=1;
+            }
+        }
+        setInterval(() => {
+            slider();
+        }, 3500);
+
+        function contactus(){
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var message = document.getElementById("contact-message").value;
+
+            var url = "/contactus"
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        name, phone,message
+                    })
+                }
+            if(name.trim()!="" && phone.trim()!="" && message.trim()!=""){
+                fetch(url, option).then((res)=>{
+                    return res.json();
+                }).then((data)=>{
+                    alert(data.message);
+                }).catch((err)=>{
+                    console.log(err);
+                })
+            }
+            else{
+                alert("We are always here for you.. Pls help fill all contact fields")
+            }
+        }
+
+        function suggestion(){
+            var message = document.getElementById("suggestion-message").value;
+
+            var url = "/suggestion"
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        message
+                    })
+                }
+            if( message.trim()!=""){
+                fetch(url, option).then((res)=>{
+                    return res.json(); 
+                }).then((data)=>{
+                    alert(data.message);
+                }).catch((err)=>{
+                    console.log(err);
+                })
+            }
+            else{
+                alert("Your suggestion will surely go a long way... Pls fill form correctly")
+            }
+        }
+
+        window.addEventListener("scroll", scrollnav);
+        function scrollnav(){
+            var sll = document.getElementById("slider");
+            var sl = sll.clientHeight - 65;
+            if (document.body.scrollTop > sl || document.documentElement.scrollTop > sl) {
+                document.querySelector("nav").style.backgroundColor = "white";
+                document.querySelector("nav").style.color = "black";
+                var hh = document.querySelectorAll("nav a");
+                for(let i=0; i<hh.length; i++){
+                    hh[i].style.color = " black";
+                }
+                
+                var span = document.querySelectorAll("#mini-nav-menu span");
+                for (let i = 0; i < span.length; i++) {
+                    span[i].style.backgroundColor = " black";
+                }
+            }
+            else {
+                document.querySelector("nav").style.backgroundColor = "#fbfbfb26";
+                document.querySelector("nav").style.color = "white";
+                var hh = document.querySelectorAll("nav a");
+                for(let i=0; i<hh.length; i++){
+                    hh[i].style.color = " white";
+                }
+                
+                var span = document.querySelectorAll("#mini-nav-menu span");
+                for (let i = 0; i < span.length; i++) {
+                    span[i].style.backgroundColor = " white";
+                }
+            }
+        }
+    </script>
+    <!-- script -->
+    <script src="/index.js"></script>
+    <script src="/nav.js"></script>
+</body>
+</html>

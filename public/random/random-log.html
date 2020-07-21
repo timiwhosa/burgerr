@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style-type: none;
+            font-family: Arial, Helvetica, sans-serif;
+            outline: none;
+        }
+        :root{
+            --bsh: #0000002b;
+        }
+        html{
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body{
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+        .contain{
+            width: 30vw;
+            min-width: 250px;
+            height: 200px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 0 0 6px var(--bsh);
+            padding: 20px;
+            display: grid;
+        }
+        .contain input{
+            padding: 5px 10px;
+            width: 20vw;
+        }
+        .contain p:last-child{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .contain button{
+            width: 100px;
+            height: 30px;
+            background-color: #f8530e ;
+            color: rgba(255, 255, 255, 0.781);
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            box-shadow: 0 2px 3px #00000050;
+            font-size: 18px;
+            border-radius: 4px;
+        }
+        .contain button:active{
+            box-shadow: inset 1px 1px 2px var(--bsh) , 
+            inset -1px -1px 2px rgba(255, 255, 255, 0.377);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="contain">
+        <p>Name:</p>
+        <p><input type="text" name="" id="name"></p>
+        <p>Password:</p>
+        <p><input type="password" name="" id="password"></p>
+        <p><button onclick="check()">SEND</button></p>
+    </div>
+
+    <script>
+        function check(){
+            var h = 0;
+            var name = document.getElementById("name").value;
+            var password = document.getElementById("password").value;
+              name= "hi";
+              password= 123;
+            if(name.trim() !="" && password.trim() !=""){
+                var url = "/check";
+                var option ={
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        name, password
+                    })
+                }
+                fetch(url, option).then((res)=>{
+                    if(res.ok){
+                        h=1;
+                        // console.log(res)
+                        return res.json();
+                    }
+                    else{
+                        h=0;
+                        return res.json()
+                    }
+                }).then((data)=>{
+                    if(h==1){
+                        var url2 = "/random";
+                        var option2 ={
+                            method : "POST",
+                            headers: {"content-type": "application/json",
+                            "Authorization": `Bearer ${data.token}`
+                        },
+                            body: ""
+                        }
+
+                        fetch(url2,option2)
+                        .then((res)=>{
+                            return res;
+                        }).then((data2)=>{
+                            console.log(data2)
+                        }).catch((err)=>{
+                            console.log(err);
+                        })
+                    }
+                    else{
+                        alert(data.message);
+                    }
+                }).catch((err)=>{
+                    console.log(err);
+                });
+            }
+            else{
+                alert("Pls fill form correctly")
+            }
+        }
+
+        
+    </script>
+
+</body>
+</html>

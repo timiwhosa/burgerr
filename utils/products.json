@@ -1,0 +1,184 @@
+{
+  "bread": [
+    {
+      "type": "bread",
+      "name": "fjfj",
+      "description": "fjfdf",
+      "price": "2323",
+      "image": "/img/product/bread.jpg",
+      "id": 9
+    },
+    {
+      "type": "bread",
+      "name": "dfjdfdjf",
+      "description": "jdfjlsfj",
+      "price": "2121",
+      "image": "/img/product/bread3.jpg",
+      "id": 8
+    },
+    {
+      "type": "bread",
+      "name": "white bread",
+      "description": "Nourishing white loaf specially prepared for you by our team of specialist.",
+      "price": 500,
+      "id": 1,
+      "image": "/img/product/bread1.jpg"
+    },
+    {
+      "type": "bread",
+      "name": "fruit bread",
+      "description": "Nourishing white loaf specially prepared for you by our team of specialist.",
+      "price": 500,
+      "id": 2,
+      "image": "/img/product/bread2.jpg"
+    },
+    {
+      "type": "bread",
+      "name": "chocolate bread",
+      "description": "Nourishing white loaf specially prepared for you by our team of specialist.",
+      "price": 500,
+      "id": 3,
+      "image": "/img/product/bread1.jpg"
+    },
+    {
+      "type": "bread",
+      "name": "cake bread",
+      "description": "Nourishing white loaf specially prepared for you by our team of specialist.",
+      "price": 500,
+      "id": 4,
+      "image": "/img/product/bread2.jpg"
+    },
+    {
+      "type": "bread",
+      "name": "banana bread",
+      "description": "Nourishing white loaf specially prepared for you by our team of specialist.",
+      "price": 500,
+      "id": 4,
+      "image": "/img/product/bread2.jpg"
+    },
+    {
+      "type": "bread",
+      "name": "royal loaf",
+      "description": "Nourishing white loaf specially prepared for you by our team of specialist.",
+      "price": 500,
+      "id": 4,
+      "image": "/img/product/bread2.jpg"
+    },
+    {
+      "type": "bread",
+      "name": "butter sandwich",
+      "description": "Nourishing white loaf specially prepared for you by our team of specialist.",
+      "price": 500,
+      "id": 4,
+      "image": "/img/product/bread2.jpg"
+    }
+  ],
+  "birthday-cupcake": [
+    {
+      "type": "birthday-cupcake",
+      "name": "white loaf",
+      "description": "yummy birthday-cupcake",
+      "price": 500,
+      "id": 4,
+      "image": "/img/product/birthday-cupcake.jpg"
+    },
+    {
+      "type": "birthday-cupcake",
+      "name": "white loaf",
+      "description": "yummy birthday-cupcake",
+      "price": 5002,
+      "id": 3,
+      "image": "/img/product/birthday-cupcake.jpg"
+    },
+    {
+      "type": "birthday-cupcake",
+      "name": "white loaf",
+      "description": "yummy birthday-cupcake",
+      "price": 5003,
+      "id": 1,
+      "image": "/img/product/birthday-cupcake.jpg"
+    },
+    {
+      "type": "birthday-cupcake",
+      "name": "white loaf",
+      "description": "yummy birthday-cupcake",
+      "price": 5004,
+      "id": 1,
+      "image": "/img/product/birthday-cupcake.jpg"
+    }
+  ],
+  "shawarma": [
+    {
+      "type": "shawarma",
+      "name": "shawarma",
+      "description": "yummy shawarma",
+      "price": 5005,
+      "id": 9,
+      "image": "/img/product/beef-shawarma.jpg"
+    },
+    {
+      "type": "shawarma",
+      "name": "white loaf",
+      "description": "yummy shawarma",
+      "price": 5006,
+      "id": 10,
+      "image": "/img/product/chicken-Shawarma.jpg"
+    },
+    {
+      "type": "shawarma",
+      "name": "white loaf",
+      "description": "yummy shawarma",
+      "price": 5007,
+      "id": 11,
+      "image": "/img/product/chicken-Shawarma.jpg"
+    },
+    {
+      "type": "shawarma",
+      "name": "white loaf",
+      "description": "yummy shawarma",
+      "price": 5008,
+      "id": 12,
+      "image": "/img/product/chicken-Shawarma.jpg"
+    }
+  ],
+  "cupcake": [
+    {
+      "type": "cupcake",
+      "name": "white loaf",
+      "description": "yummy cupcake",
+      "price": 5009,
+      "id": 13,
+      "image": "/img/product/cupcake1.jpg"
+    },
+    {
+      "type": "cupcake",
+      "name": "white loaf",
+      "description": "yummy cupcake",
+      "price": 50010,
+      "id": 14,
+      "image": "/img/product/cupcake2.jpg"
+    },
+    {
+      "type": "cupcake",
+      "name": "white loaf",
+      "description": "yummy cupcake",
+      "price": 50011,
+      "id": 15,
+      "image": "/img/product/cupcake2.jpg"
+    },
+    {
+      "type": "cupcake",
+      "name": "white loaf",
+      "description": "yummy cupcake",
+      "price": 50012,
+      "id": 16,
+      "image": "/img/product/cupcake2.jpg"
+    }
+  ],
+  "all": [
+    "bread",
+    "birthday-cupcake",
+    "shawarma",
+    "cupcake"
+  ]
+}

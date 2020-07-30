@@ -45,7 +45,7 @@ body a{
     display: grid;
     grid-template-columns: 1fr;
     text-align: center;
-    grid-gap: 5vh;
+    grid-gap: 3vh;
 }
 .container .left ul li, .menu ul li{
     padding: 4vh 0;
@@ -56,6 +56,15 @@ body a{
     position: relative;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
+}
+.container .left ul li a, .menu ul li a{
+    width: 100%;
+    height: 46px;
+    justify-content: center;
+    display: flex;
+    margin-top: -23px;
+    align-items: center;
+    margin-bottom: -23px;
 }
 #mini-nav-menu{
     display: none;
@@ -91,7 +100,7 @@ body a{
 }
 .menu{
     left: -100vw;
-    transition: all ease-in-out .5s;
+    transition: all ease-in-out .7s;
     z-index: 99999999999999999999999;
 }
 
@@ -131,6 +140,7 @@ body a{
 .row1 .top .top-left div:last-child p{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    font-size: 24px;
 }
 .row1 .top .top-left div:last-child p span{
     display: grid;
@@ -248,9 +258,11 @@ body a{
 }
 .row1 .right-bottom .div2 .prod p:nth-child(2){
     font-weight: 600;
+    text-align: center;
 }
 
 
+/* ROW2 */
 .row2{
     display: block;
     margin: 0 1vw 5vh;

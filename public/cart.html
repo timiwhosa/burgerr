@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Burger house bakery cart section | burger bread">
+    <meta name="keywords" content="bread, burger, burger house, cart,nigeria bread, bread in nigeria, best bread">
+    <meta name="author" content="@ifo_tim">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burger PAN Bread</title>
     <link rel="stylesheet" href="/style.css">
@@ -195,6 +198,20 @@
             document.getElementById("order-type-div2").style.left = "-340px";
             document.getElementById("order-type-div3").style.left = "10px";
         }
+        String.prototype.escape = function(){
+            var tagtoreplace = {
+                "&":"&amp;",
+                "<":"&lt",
+                ">":"&gt",
+                "script":" ",
+                "Script":" ",
+                '"':" ",
+                "`":" "
+            };
+            return this.replace(/[&<>`]/g, function(tag){
+                return tagtoreplace[tag] || tag;
+            });
+        }
 
 
         // CART
@@ -213,18 +230,18 @@
                     
                     html.innerHTML = `
                                 <div class="cart-product">
-                                    <img src="${product[allproduct[i]].img}" alt="burger house| burger bread ${product[allproduct[i]].img}">
-                                    <p>${product[allproduct[i]].description}</p>
-                                    <p>N${product[allproduct[i]].price} each</p>
+                                    <img src="${product[allproduct[i]].img.escape()}" alt="burger house| burger bread ${product[allproduct[i]].img.escape()}">
+                                    <p>${product[allproduct[i]].description.escape()}</p>
+                                    <p>N${product[allproduct[i]].price.escape()} each</p>
                                 </div>
                                 <div class="cart-div-input">
-                                    <span class="inc" id="dec" onclick="cartrange(${i+1},'${allproduct[i]}', 'decrease')">-</span>
-                                    <input type="text" name="" id="no-of${i+1}" oninput="cartrange(${i+1},'${allproduct[i]}', 'auto')" value="${product[allproduct[i]].incart}">
-                                    <span class="inc" id="dec" onclick="cartrange(${i+1}, '${allproduct[i]}', 'increase')">+</span>
+                                    <span class="inc" id="dec" onclick="cartrange(${i+1},'${allproduct[i].escape()}', 'decrease')">-</span>
+                                    <input type="number" name="" id="no-of${i+1}" oninput="cartrange(${i+1},'${allproduct[i].escape()}', 'auto')" value="${product[allproduct[i]].incart}">
+                                    <span class="inc" id="dec" onclick="cartrange(${i+1}, '${allproduct[i].escape()}', 'increase')">+</span>
                                 </div>
                                 <div class="total">
                                     <p>Total</p>
-                                    <p>N<span id="total${i+1}">${product[allproduct[i]].price * product[allproduct[i]].incart}</span></p>
+                                    <p>N<span id="total${i+1}">${product[allproduct[i]].price.escape() * product[allproduct[i]].incart}</span></p>
                                 </div>    
                     `
                     cartdiv.insertBefore(html, sumtotal);
@@ -379,10 +396,10 @@
         
         document.getElementById("form1").addEventListener("submit", function urgentreq(e){
             e.preventDefault();
-            var name = document.getElementById("urgent-name").value;
-            var phone = document.getElementById("urgent-phone").value;
-            var location = document.getElementById("urgent-location").value;
-            var deadline = document.getElementById("urgent-deadline").value;
+            var name = document.getElementById("urgent-name").value.escape();
+            var phone = document.getElementById("urgent-phone").value.escape();
+            var location = document.getElementById("urgent-location").value.escape();
+            var deadline = document.getElementById("urgent-deadline").value.escape();
             var product = JSON.parse(localStorage.getItem("cartproduct"));
             var allproduct = JSON.parse(localStorage.getItem("allproducts"));
 
@@ -398,6 +415,7 @@
                 return res.json();
             }).then((data)=>{
                 alert(data.message);
+                ordernow();
             }).catch((err)=>{
                 console.log(err);
             })
@@ -405,10 +423,10 @@
 
         document.getElementById("form2").addEventListener("submit", function normalreq(e){
             e.preventDefault();
-            var name = document.getElementById("normal-name").value;
-            var phone = document.getElementById("normal-phone").value;
-            var location = document.getElementById("normal-location").value;
-            var addinfo = document.getElementById("normal-add-info").value;
+            var name = document.getElementById("normal-name").value.escape();
+            var phone = document.getElementById("normal-phone").value.escape();
+            var location = document.getElementById("normal-location").value.escape();
+            var addinfo = document.getElementById("normal-add-info").value.escape();
             var product = JSON.parse(localStorage.getItem("cartproduct"));
             var allproduct = JSON.parse(localStorage.getItem("allproducts"));
 
@@ -424,6 +442,7 @@
                 return res.json();
             }).then((data)=>{
                 alert(data.message);
+                ordernow();
             }).catch((err)=>{
                 console.log(err);
             })
@@ -431,10 +450,10 @@
 
         document.getElementById("form3").addEventListener("submit", function bookingreq(e){
             e.preventDefault();
-            var name = document.getElementById("booking-name").value;
-            var phone = document.getElementById("booking-phone").value;
-            var location = document.getElementById("booking-location").value;
-            var request = document.getElementById("booking-request").value;
+            var name = document.getElementById("booking-name").value.escape();
+            var phone = document.getElementById("booking-phone").value.escape();
+            var location = document.getElementById("booking-location").value.escape();
+            var request = document.getElementById("booking-request").value.escape();
             var product = JSON.parse(localStorage.getItem("cartproduct"));
             var allproduct = JSON.parse(localStorage.getItem("allproducts"));
 
@@ -450,6 +469,7 @@
                 return res.json();
             }).then((data)=>{
                 alert(data.message);
+                ordernow()
             }).catch((err)=>{
                 console.log(err);
             })

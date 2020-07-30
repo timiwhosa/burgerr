@@ -1,11 +1,11 @@
 [
   {
     "page": "home",
-    "visit": 94
+    "visit": 226
   },
   {
     "page": "bread",
-    "visit": 1
+    "visit": 10
   },
   {
     "page": "white bread",
@@ -25,14 +25,50 @@
   },
   {
     "page": "white loaf",
-    "visit": 2
-  },
-  {
-    "page": "cupcake",
     "visit": 5
   },
   {
+    "page": "cupcake",
+    "visit": 6
+  },
+  {
     "page": "cart",
+    "visit": 24
+  },
+  {
+    "page": "shawarma",
+    "visit": 6
+  },
+  {
+    "page": "contactus",
+    "visit": 1
+  },
+  {
+    "page": "suggestion",
+    "visit": 1
+  },
+  {
+    "page": "fjfj",
+    "visit": 2
+  },
+  {
+    "page": "menu",
+    "visit": 2
+  },
+  {
+    "page": "shawarma2",
+    "visit": 2
+  },
+  {
+    "page": "shawarma3",
+    "visit": 1
+  },
+  {
+    "page": "about",
+    "visit": 114
+  },
+  {
+    "page": "cupcake1",
     "visit": 1
   }
 ]

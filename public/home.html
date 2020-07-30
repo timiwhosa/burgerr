@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Burger house bakery Home page | burger bread">
+    <meta name="keywords" content=" bread, burger, burger house, cart,nigeria bread, bread in nigeria, best breads, akure, breads in akure, bakery, ondo state, ondo">
+    <meta name="author" content="@ifo_tim">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burger PAN Bread</title>
     <link rel="stylesheet" href="/style.css">
@@ -12,9 +16,7 @@
     <nav> </nav>
 
     <div class="slider" id="slider">
-        <img src="/img/product/cupcake2.jpg" alt="burger house| burger bread cupcake" id="slider-img1">
-        <img src="/img/product/Chicken-Shawarma.jpg" alt="burger house| burger bread shawarma" id="slider-img2">
-        <img src="/img/product/bread.jpg" alt="burger house| burger bread loaf/bread" id="slider-img3">
+        <img src="/img/nav/cupcake2.jpg" alt="burger house| burger bread cupcake" id="slider-img1">
         <div class="slider-description">
             <div class="">
                 <h3>BURGER PAN BREAD</h3>
@@ -33,6 +35,26 @@
         </div>
     </div>
     <div class="container">
+        <div class="headlines">
+            <div class="headl">
+               <a href="/about">
+                    <img src="/img/illustration/glass-cup-cake.jpg" alt="burger bread story">
+                    <p>OUR STORY</p>
+                </a>
+            </div>
+            <div class="headl">
+               <a href="/menu">
+                    <img src="/img/illustration/pancake.png" alt="burger bread story">
+                    <p>OUR MENU</p>
+                </a>
+            </div>
+            <div class="headl">
+               <a href="/events">
+                    <img src="/img/illustration/event2.png" alt="burger bread story">
+                    <p>OUR EVENT</p>
+                </a>
+            </div>
+        </div>
         <h3>WHAT WE OFFER</h3>
         <div class="content">
             <div class="product-offered">
@@ -61,24 +83,33 @@
         </div>
         <div class="services">
             <h3>Our Services</h3>
-            <div class="our-services">
-                <ul>
-                    <li>
-                        Point of sale (POS)
-                    </li>
-                    <li>
-                        Bulk order
-                    </li>
-                    <li>
-                        Home Delivery
-                    </li>
-                    <li>
-                        Proximity shopping
-                    </li>
-                    <li>
-                        Desserts
-                    </li>
-                </ul>
+            <div class="serv">
+                <div class="our-services">
+                    <ul>
+                        <li>
+                            Point of sale (POS)
+                        </li>
+                        <li>
+                            Bulk order
+                        </li>
+                        <li>
+                            Home Delivery
+                        </li>
+                        <li>
+                            Proximity shopping
+                        </li>
+                        <li>
+                            Desserts
+                        </li>
+                        <li>
+                            Bookings
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="">
+                    <img src="/img/illustration/homedelivery3.jpg" alt="burger bread">
+                </div>
             </div>
         </div>
         <div class="contact-us" id="contact">
@@ -90,7 +121,7 @@
             <div class="contact-details">
                 <p><a href="tel:08034289463">Tel: 08034289463</a></p>
                 <p><a href="tel:08034331871">Tel: 08034331871</a></p>
-                <p><a href="https://burgerhouse@yahoo.com">burgerhouse@yahoo.com</a></p>
+                <p><a href="mailto:burgerhouse@yahoo.com">burgerhouse@yahoo.com</a></p>
             </div>
             <br>
             <p style="text-align: center;font-size: 20px; font-weight: 600;color: #FF5722;">OR</p>
@@ -124,74 +155,111 @@
                 <button onclick="suggestion()">Submit</button>
             </div>
         </div>
+
+        <div class="about" id="about">
+            <h3>About Us </h3>
+            <div class="abd">
+                <div class="abdr">
+                    <img src="/img/illustration/event2.png" alt="burger bread">
+                </div>
+                <div class="abdl">
+                    <div class="">
+                        <p>
+                            Burger house Bakery is a food production company that involves in production
+                            of good and quality bread, doughnut, chin chin, cup cake, pea nuts and the likes...
+                        </p> 
+                        <p>
+                            We are located in Akure,.... Come now and have the feelings of good taste
+                        </p>
+                        <p><a href="/about"><button>See more</button></a></p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     </div>
 
 
     
 
     <script>
-        var slide1 = document.querySelector("#slider-img1");
-        var slide2 = document.querySelector("#slider-img2");
-        var slide3 = document.querySelector("#slider-img3");
-        var slide =1;
-        function slider(){
+        // var slide1 = document.querySelector("#slider-img1");
+        // var slide2 = document.querySelector("#slider-img2");
+        // var slide3 = document.querySelector("#slider-img3");
+        // var slide =1;
+        // function slider(){
             
-            if(slide==1){
+        //     if(slide==1){
 
-                slide3.style.left = "-100%";
-                slide3.style.zIndex = "1";
-                slide3.style.visibility = "hidden";
+        //         slide3.style.left = "-100%";
+        //         slide3.style.zIndex = "1";
+        //         slide3.style.visibility = "hidden";
                 
-                slide2.style.left = "0";
-                slide2.style.zIndex = "5";
-                slide2.style.visibility = "visible";
+        //         slide2.style.left = "0";
+        //         slide2.style.zIndex = "5";
+        //         slide2.style.visibility = "visible";
 
-                slide1.style.left = "100%";
-                slide1.style.zIndex = "3";
-                slide1.style.visibility = "hidden";
-                slide=2;
+        //         slide1.style.left = "100%";
+        //         slide1.style.zIndex = "3";
+        //         slide1.style.visibility = "hidden";
+        //         slide=2;
 
                 
-            }
+        //     }
             
-            else if(slide==2){
-                slide2.style.left = "-100%";
-                slide2.style.zIndex = "1";
-                slide2.style.visibility = "hidden";
+        //     else if(slide==2){
+        //         slide2.style.left = "-100%";
+        //         slide2.style.zIndex = "1";
+        //         slide2.style.visibility = "hidden";
 
-                slide1.style.left = "0";
-                slide1.style.zIndex = "5";
-                slide1.style.visibility = "visible";
+        //         slide1.style.left = "0";
+        //         slide1.style.zIndex = "5";
+        //         slide1.style.visibility = "visible";
 
-                slide3.style.left = "100%";
-                slide3.style.zIndex = "3";
-                slide3.style.visibility = "hidden";
-                slide=3;
-            }
+        //         slide3.style.left = "100%";
+        //         slide3.style.zIndex = "3";
+        //         slide3.style.visibility = "hidden";
+        //         slide=3;
+        //     }
 
-            else if(slide==3){
-                slide1.style.left = "-100%";
-                slide1.style.zIndex = "1";
-                slide1.style.visibility = "hidden";
+        //     else if(slide==3){
+        //         slide1.style.left = "-100%";
+        //         slide1.style.zIndex = "1";
+        //         slide1.style.visibility = "hidden";
 
-                slide2.style.left = "100%";
-                slide2.style.zIndex = "3";
-                slide2.style.visibility = "hidden";
+        //         slide2.style.left = "100%";
+        //         slide2.style.zIndex = "3";
+        //         slide2.style.visibility = "hidden";
 
-                slide3.style.left = "0";
-                slide3.style.zIndex = "5";
-                slide3.style.visibility = "visible";
-                slide=1;
-            }
+        //         slide3.style.left = "0";
+        //         slide3.style.zIndex = "5";
+        //         slide3.style.visibility = "visible";
+        //         slide=1;
+        //     }
+        // }
+        // setInterval(() => {
+        //     slider();
+        // }, 3500);
+        String.prototype.escape = function(){
+            var tagtoreplace = {
+                "&":"&amp;",
+                "<":"&lt",
+                ">":"&gt",
+                "=":"",
+                "script":" ",
+                "Script":" ",
+                '"':" ",
+                "`":" "
+            };
+            return this.replace(/[&<>`=]/g, function(tag){
+                return tagtoreplace[tag] || tag;
+            });
         }
-        setInterval(() => {
-            slider();
-        }, 3500);
 
         function contactus(){
-            var name = document.getElementById("name").value;
+            var name = document.getElementById("name").value.escape();
             var phone = document.getElementById("phone").value;
-            var message = document.getElementById("contact-message").value;
+            var message = document.getElementById("contact-message").value.escape();
 
             var url = "/contactus"
             var option = {
@@ -216,7 +284,7 @@
         }
 
         function suggestion(){
-            var message = document.getElementById("suggestion-message").value;
+            var message = document.getElementById("suggestion-message").value.escape();
 
             var url = "/suggestion"
             var option = {
@@ -243,10 +311,13 @@
         window.addEventListener("scroll", scrollnav);
         function scrollnav(){
             var sll = document.getElementById("slider");
-            var sl = sll.clientHeight - 65;
+            var sl = sll.clientHeight - 85;
             if (document.body.scrollTop > sl || document.documentElement.scrollTop > sl) {
                 document.querySelector("nav").style.backgroundColor = "white";
                 document.querySelector("nav").style.color = "black";
+                document.querySelector("nav").style.top = "0";
+                document.querySelector("nav").style.width = "100vw";
+                document.querySelector("nav").style.left = "0";
                 var hh = document.querySelectorAll("nav a");
                 for(let i=0; i<hh.length; i++){
                     hh[i].style.color = " black";
@@ -258,8 +329,11 @@
                 }
             }
             else {
-                document.querySelector("nav").style.backgroundColor = "#fbfbfb26";
+                document.querySelector("nav").style.backgroundColor = "#0a0a0a38";
                 document.querySelector("nav").style.color = "white";
+                document.querySelector("nav").style.top = "5vh";
+                document.querySelector("nav").style.width = "80vw";
+                document.querySelector("nav").style.left = "10vw";
                 var hh = document.querySelectorAll("nav a");
                 for(let i=0; i<hh.length; i++){
                     hh[i].style.color = " white";

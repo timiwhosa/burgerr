@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Burger bread single product page">
+    <meta name="keywords" content="bread, burger, burger house, cart,nigeria bread, bread in nigeria, best breads, akure, breads in akure, bakery">
+    <meta name="author" content="@ifo_tim">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burger PAN Bread || single product</title>
     <link rel="stylesheet" href="/style.css">
@@ -320,6 +323,21 @@
             }
         }
 
+        String.prototype.escape = function(){
+            var tagtoreplace = {
+                "&":"&amp;",
+                "<":"&lt",
+                ">":"&gt",
+                "script":" ",
+                "Script":" ",
+                '"':" ",
+                "`":" "
+            };
+            return this.replace(/[&<>`]/g, function(tag){
+                return tagtoreplace[tag] || tag;
+            });
+        }
+
         function noincart(){
             var nobefore = parseInt(localStorage.getItem("noincart"));
             // console.log( nobefore);
@@ -424,10 +442,10 @@
         // document.getElementById("form1").addEventListener("click",
         function urgentreq(){
             // e.preventDefault();
-            var name = document.getElementById("urgent-name").value;
-            var phone = document.getElementById("urgent-phone").value;
-            var location = document.getElementById("urgent-location").value;
-            var deadline = document.getElementById("urgent-deadline").value;
+            var name = document.getElementById("urgent-name").value.escape();
+            var phone = document.getElementById("urgent-phone").value.escape();
+            var location = document.getElementById("urgent-location").value.escape();
+            var deadline = document.getElementById("urgent-deadline").value.escape();
             var fp = {
                 [`${prod + singleproduct[0].id}`] : {
                                 "category": singleproduct[0].type,
@@ -453,6 +471,7 @@
                     return res.json();
                 }).then((data)=>{
                     alert(data.message);
+                    ordernow()
                 }).catch((err)=>{
                     console.log(err);
                 });
@@ -466,10 +485,10 @@
         // document.getElementById("form2").addEventListener("click",
         function normalreq(){
             // e.preventDefault();
-            var name = document.getElementById("normal-name").value;
-            var phone = document.getElementById("normal-phone").value;
-            var location = document.getElementById("normal-location").value;
-            var addinfo = document.getElementById("normal-add-info").value;
+            var name = document.getElementById("normal-name").value.escape();
+            var phone = document.getElementById("normal-phone").value.escape();
+            var location = document.getElementById("normal-location").value.escape();
+            var addinfo = document.getElementById("normal-add-info").value.escape();
             var fp = {
                 [`${prod + singleproduct[0].id}`] : {
                                 "category": singleproduct[0].type,
@@ -495,6 +514,7 @@
                     return res.json();
                 }).then((data)=>{
                     alert(data.message);
+                    ordernow();
                 }).catch((err)=>{
                     console.log(err);
                 });
@@ -508,10 +528,10 @@
         // document.getElementById("form3").addEventListener("click",
          function bookingreq(){
             // e.preventDefault();
-            var name = document.getElementById("booking-name").value;
-            var phone = document.getElementById("booking-phone").value;
-            var location = document.getElementById("booking-location").value;
-            var request = document.getElementById("booking-request").value;
+            var name = document.getElementById("booking-name").value.escape();
+            var phone = document.getElementById("booking-phone").value.escape();
+            var location = document.getElementById("booking-location").value.escape();
+            var request = document.getElementById("booking-request").value.escape();
             var fp = {
                 [`${prod + singleproduct[0].id}`] : {
                                 "category": singleproduct[0].type,
@@ -537,6 +557,7 @@
                     return res.json();
                 }).then((data)=>{
                     alert(data.message);
+                    ordernow();
                 }).catch((err)=>{
                     console.log(err);
                 });

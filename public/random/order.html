@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger house | Orders</title>
+    <link rel="stylesheet" href="/random/random.css">
+</head>
+<style>
+    .nav{
+        width: 100vw;
+        position: sticky;
+        top: 0;
+        height: 50px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 3vw;
+        background-color: white;
+        z-index: 999;
+    }
+    .nav p{
+        width: fit-content;
+        padding: 5px 10px;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.349);
+    }
+    .row2{
+        display: block;
+    }
+    .row2 .row2-heading{
+        top:50px;
+    }
+</style>
+<body>
+    <div class="nav"><p><a href="/logout">Logout</a></p></div>
+    <div class="row2" id="row2">
+        <div class="row2-heading">
+            <span onclick="showorder(1)" id="sp1">URGENT</span>
+            <span onclick="showorder(2)" id="sp2">NORMAL</span>
+            <span onclick="showorder(3)" id="sp3">BOOKING</span>
+        </div>
+        <div class="main-ord" id="ord1"></div>
+        <div class="main-ord" id="ord2"></div>
+        <div class="main-ord" id="ord3"> </div>
+    </div>
+
+    <script>
+        function showorder(index){
+            for(let i =1; i<=3; i++){
+                document.getElementById(`ord${i}`).style.display = "none";
+                document.getElementById(`sp${i}`).style.boxShadow = "none"
+            }
+            document.getElementById(`ord${index}`).style.display = "grid";
+            document.getElementById(`sp${index}`).style.boxShadow = "inset 2px 2px 2px #0000002b, inset -2px -2px 2px rgb(251, 114, 10)"
+            
+    
+        }
+        showorder(1);
+        function loadorder(){ 
+            var url = "/order";
+                var option = {
+                        method : "POST",
+                        headers: {"content-type": "application/json"},
+                        body:""
+                    };
+                fetch(url, option).then((dat)=>{ return dat.json()}).then((json)=>{
+                    // appendprod(json)
+                    console.log(json)
+                    loadurg(json.urgent)
+                    loadnorm(json.normal)
+                    loadbooking(json.booking)
+                }).catch((err)=> console.log(err))
+        }
+        loadorder();
+
+    // function appendorder(data){
+
+    // }
+
+    String.prototype.escape = function(){
+        var tagtoreplace = {
+            "&":"&amp;",
+            "<":"&lt",
+            ">":"&gt",
+            "script":" ",
+            "Script":" ",
+            '"':" ",
+            "`":" "
+        };
+        return this.replace(/[&<>`]/g, function(tag){
+            return tagtoreplace[tag] || tag;
+        });
+    }
+
+
+    function checkdelivered(section,id){
+        document.getElementById(`${section + id}`).style.backgroundColor ="green";
+    }
+    function loadurg(data){
+        var div = document.getElementById("ord1");
+        div.innerHTML="";
+        // console.log(data)
+        for(let i =0; i< data.length; i++){
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            // var div4 = document.createElement("div");
+
+            
+            var span1 = document.createElement("span");//done
+            var span2 = document.createElement("span");//done
+            var span3 = document.createElement("span");//done
+            var span4 = document.createElement("span");//done
+            
+            var b1 = document.createElement("button");
+            b1.setAttribute("onclick",`delivered("urgent",${data[i].id})`);
+            b1.textContent = "Delivered";
+            
+            var p1 = document.createElement("p");
+            var p2 = document.createElement("p");
+            var p3 = document.createElement("p");
+            var p4 = document.createElement("p");
+
+            div1.setAttribute("class", "ord");
+            div2.setAttribute("class", "not");
+            div2.setAttribute("id", `urgent${data[i].id}`);
+            div3.setAttribute("class", "ord-prod");
+            // console.log(data[i].delivered)
+            span4.setAttribute("class", "total");
+
+            span2.textContent = "Name:";
+            span2.textContent += data[i].name;
+            span3.textContent = "Phone:";
+            span3.textContent += data[i].phone;
+            span4.textContent = "Total: ";//comeback and calc total
+
+            
+            p1.appendChild(span2);
+            p1.appendChild(span3);
+            p2.textContent = "Deadline:";
+            p2.textContent += data[i].deadline;
+            p3.textContent = "Location:";
+            p3.textContent += data[i].location;
+            p4.appendChild(span4);
+            p4.appendChild(b1);
+
+            
+            div2.appendChild(span1);
+            var h =0;
+            for(let p =0; p< data[i].allproduct.length; p++){
+                
+                var div5 = document.createElement("div");
+                var div6 = document.createElement("div");
+                var div7 = document.createElement("div");
+                var div8 = document.createElement("div");
+
+                
+                var p5 = document.createElement("p");
+                var p6 = document.createElement("p");
+                var p7 = document.createElement("p");
+                var p8 = document.createElement("p");
+                var p9 = document.createElement("p");
+                var p10 = document.createElement("p");
+                
+                var img = document.createElement("img");
+                img.setAttribute("src", data[i].product[data[i].allproduct[p]].img.escape() )
+
+                div5.setAttribute("class", "ord-prod-prod");
+
+                p5.textContent = data[i].product[data[i].allproduct[p]].description.escape();
+                p6.textContent = "N";
+                p6.textContent += data[i].product[data[i].allproduct[p]].price.escape();
+                p6.textContent += " each";
+                p7.textContent = "Quantity";
+                p8.textContent = data[i].product[data[i].allproduct[p]].incart;
+                p9.textContent = "Total";
+                p10.textContent = "N"+ data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price.escape();
+
+                h+= parseInt( data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price);
+                
+                div6.appendChild(p5)
+                div6.appendChild(p6)
+                div7.appendChild(p7)
+                div7.appendChild(p8)
+                div8.appendChild(p9)
+                div8.appendChild(p10)
+
+                
+                div5.appendChild(img)
+                div5.appendChild(div6)
+                div5.appendChild(div7)
+                div5.appendChild(div8)
+                div3.appendChild(div5);
+                // console.log(data[i].product[data[i].allproduct[p]]);
+
+            }
+            span4.innerHTML += h;
+            div1.appendChild(div2);
+            div1.appendChild(p1);
+            div1.appendChild(p2);
+            div1.appendChild(p3);
+            div1.appendChild(div3);
+            div1.appendChild(p4);
+            div.appendChild(div1);
+            if(data[i].delivered == true){
+                checkdelivered("urgent",data[i].id)
+            }
+        }
+    }
+
+    function loadnorm(data){
+        var div = document.getElementById("ord2");
+        div.innerHTML="";
+        // console.log(data)
+        for(let i =0; i< data.length; i++){
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            // var div4 = document.createElement("div");
+
+            
+            var span1 = document.createElement("span");//done
+            var span2 = document.createElement("span");//done
+            var span3 = document.createElement("span");//done
+            var span4 = document.createElement("span");//done
+            
+            var b1 = document.createElement("button");
+            b1.setAttribute("onclick",`delivered("normal",${data[i].id})`);
+            b1.textContent = "Delivered";
+            
+            var p1 = document.createElement("p");
+            var p2 = document.createElement("p");
+            var p3 = document.createElement("p");
+            var p4 = document.createElement("p");
+
+            div1.setAttribute("class", "ord");
+            div2.setAttribute("class", "not");
+            div2.setAttribute("id", `normal${data[i].id}`);
+            div3.setAttribute("class", "ord-prod");
+
+            span4.setAttribute("class", "total");
+
+            span2.textContent = "Name:";
+            span2.textContent += data[i].name;
+            span3.textContent = "Phone:";
+            span3.textContent += data[i].phone;
+            span4.textContent = "Total: ";//comeback and calc total
+
+            
+            p1.appendChild(span2);
+            p1.appendChild(span3);
+            p2.textContent = "addinfo:";
+            p2.textContent += data[i].addinfo;
+            p3.textContent = "Location:";
+            p3.textContent += data[i].location;
+            p4.appendChild(span4);
+            p4.appendChild(b1);
+
+            
+            div2.appendChild(span1);
+            var h =0;
+            for(let p =0; p< data[i].allproduct.length; p++){
+                
+                var div5 = document.createElement("div");
+                var div6 = document.createElement("div");
+                var div7 = document.createElement("div");
+                var div8 = document.createElement("div");
+
+                
+                var p5 = document.createElement("p");
+                var p6 = document.createElement("p");
+                var p7 = document.createElement("p");
+                var p8 = document.createElement("p");
+                var p9 = document.createElement("p");
+                var p10 = document.createElement("p");
+                
+                var img = document.createElement("img");
+                img.setAttribute("src", data[i].product[data[i].allproduct[p]].img.escape() )
+
+                div5.setAttribute("class", "ord-prod-prod");
+
+                p5.textContent = data[i].product[data[i].allproduct[p]].description.escape();
+                p6.textContent = "N";
+                p6.textContent += data[i].product[data[i].allproduct[p]].price.escape();
+                p6.textContent += " each";
+                p7.textContent = "Quantity";
+                p8.textContent = data[i].product[data[i].allproduct[p]].incart;
+                p9.textContent = "Total";
+                p10.textContent = "N"+ data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price.escape();
+
+                h+= parseInt( data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price);
+                
+                div6.appendChild(p5)
+                div6.appendChild(p6)
+                div7.appendChild(p7)
+                div7.appendChild(p8)
+                div8.appendChild(p9)
+                div8.appendChild(p10)
+
+                
+                div5.appendChild(img)
+                div5.appendChild(div6)
+                div5.appendChild(div7)
+                div5.appendChild(div8)
+                div3.appendChild(div5);
+                // console.log(data[i].product[data[i].allproduct[p]]);
+
+            }
+            span4.innerHTML += h;
+            div1.appendChild(div2);
+            div1.appendChild(p1);
+            div1.appendChild(p2);
+            div1.appendChild(p3);
+            div1.appendChild(div3);
+            div1.appendChild(p4);
+            div.appendChild(div1);
+            if(data[i].delivered == true){
+                checkdelivered("normal",data[i].id)
+            }
+        }
+    }
+
+    function loadbooking(data){
+        var div = document.getElementById("ord3");
+        div.innerHTML="";
+        // console.log(data)
+        for(let i =0; i< data.length; i++){
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+            var div3 = document.createElement("div");
+            // var div4 = document.createElement("div");
+
+            
+            var span1 = document.createElement("span");//done
+            var span2 = document.createElement("span");//done
+            var span3 = document.createElement("span");//done
+            var span4 = document.createElement("span");//done
+            
+            var b1 = document.createElement("button");
+            b1.setAttribute("onclick",`delivered("booking",${data[i].id})`);
+            b1.textContent = "Delivered";
+            
+            var p1 = document.createElement("p");
+            var p2 = document.createElement("p");
+            var p3 = document.createElement("p");
+            var p4 = document.createElement("p");
+
+            div1.setAttribute("class", "ord");
+            div2.setAttribute("class", "not");
+            div2.setAttribute("id", `booking${data[i].id}`);
+            div3.setAttribute("class", "ord-prod");
+
+            span4.setAttribute("class", "total");
+
+            span2.textContent = "Name:";
+            span2.textContent += data[i].name;
+            span3.textContent = "Phone:";
+            span3.textContent += data[i].phone;
+            span4.textContent = "Total: ";//comeback and calc total
+
+            
+            p1.appendChild(span2);
+            p1.appendChild(span3);
+            p2.textContent = "request:";
+            p2.textContent += data[i].request;
+            p3.textContent = "Location:";
+            p3.textContent += data[i].location;
+            p4.appendChild(span4);
+            p4.appendChild(b1);
+
+            
+            div2.appendChild(span1);
+            var h =0;
+            for(let p =0; p< data[i].allproduct.length; p++){
+                
+                var div5 = document.createElement("div");
+                var div6 = document.createElement("div");
+                var div7 = document.createElement("div");
+                var div8 = document.createElement("div");
+
+                
+                var p5 = document.createElement("p");
+                var p6 = document.createElement("p");
+                var p7 = document.createElement("p");
+                var p8 = document.createElement("p");
+                var p9 = document.createElement("p");
+                var p10 = document.createElement("p");
+                
+                var img = document.createElement("img");
+                img.setAttribute("src", data[i].product[data[i].allproduct[p]].img.escape() )
+
+                div5.setAttribute("class", "ord-prod-prod");
+
+                p5.textContent = data[i].product[data[i].allproduct[p]].description.escape();
+                p6.textContent = "N";
+                p6.textContent += data[i].product[data[i].allproduct[p]].price.escape();
+                p6.textContent += " each";
+                p7.textContent = "Quantity";
+                p8.textContent = data[i].product[data[i].allproduct[p]].incart;
+                p9.textContent = "Total";
+                p10.textContent = "N"+ data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price.escape();
+
+                h+= parseInt( data[i].product[data[i].allproduct[p]].incart *  data[i].product[data[i].allproduct[p]].price);
+                
+                div6.appendChild(p5)
+                div6.appendChild(p6)
+                div7.appendChild(p7)
+                div7.appendChild(p8)
+                div8.appendChild(p9)
+                div8.appendChild(p10)
+
+                
+                div5.appendChild(img)
+                div5.appendChild(div6)
+                div5.appendChild(div7)
+                div5.appendChild(div8)
+                div3.appendChild(div5);
+                // console.log(data[i].product[data[i].allproduct[p]]);
+
+            }
+            span4.innerHTML += h;
+            div1.appendChild(div2);
+            div1.appendChild(p1);
+            div1.appendChild(p2);
+            div1.appendChild(p3);
+            div1.appendChild(div3);
+            div1.appendChild(p4);
+            div.appendChild(div1);
+            if(data[i].delivered == true){
+                checkdelivered("booking",data[i].id)
+            }
+        }
+    }
+    function delivered(section, id){
+        var del =confirm("Are you sure this order has been delivered");
+        if(del == true){
+            var url = "/delivered/xyz"
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        section, id
+                    })
+                };
+            fetch(url, option).then((res)=>{
+                return res.json(); 
+            }).then((data)=>{
+                if(data.message == "done"){
+                    document.getElementById(`${section + id}`).style.backgroundColor ="green";
+                }
+                else{
+                    alert(data.message);
+                }
+            }).catch((err)=>{
+                console.log(err);
+            });
+        }
+    }
+
+    </script>
+</body>
+</html>

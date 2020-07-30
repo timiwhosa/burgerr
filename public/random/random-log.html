@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+    <title>Burger bread | Login</title>
 
     <style>
         *{
@@ -25,9 +25,13 @@
         }
         body{
             width: 100%;
-            height: auto;
+            height: 100vh;
             margin: 0;
             padding: 0;
+            background-image: url(/img/product/Chicken-Shawarma.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         .contain{
             width: 30vw;
@@ -40,11 +44,20 @@
             background-color: white;
             box-shadow: 0 0 6px var(--bsh);
             padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .contain form{
             display: grid;
+            height: 100%;
+            width: 80%;
+            min-width: 210px;
         }
         .contain input{
             padding: 5px 10px;
             width: 20vw;
+            min-width: 220px;
+            -webkit-text-security: disc;
         }
         .contain p:last-child{
             display: flex;
@@ -74,72 +87,16 @@
 <body>
     
     <div class="contain">
-        <p>Name:</p>
-        <p><input type="text" name="" id="name"></p>
-        <p>Password:</p>
-        <p><input type="password" name="" id="password"></p>
-        <p><button onclick="check()">SEND</button></p>
+        <form action="/check" method="post" >
+            <p>Username:</p>
+            <p><input type="text" name="name" id="name" ></p>
+            <p>Password:</p>
+            <p><input type="password" name="password" id="password"></p>
+            <p><button  type="submit">SEND</button></p>
+        </form>
     </div>
 
     <script>
-        function check(){
-            var h = 0;
-            var name = document.getElementById("name").value;
-            var password = document.getElementById("password").value;
-              name= "hi";
-              password= 123;
-            if(name.trim() !="" && password.trim() !=""){
-                var url = "/check";
-                var option ={
-                    method : "POST",
-                    headers: {"content-type": "application/json"},
-                    body: JSON.stringify({
-                        name, password
-                    })
-                }
-                fetch(url, option).then((res)=>{
-                    if(res.ok){
-                        h=1;
-                        // console.log(res)
-                        return res.json();
-                    }
-                    else{
-                        h=0;
-                        return res.json()
-                    }
-                }).then((data)=>{
-                    if(h==1){
-                        var url2 = "/random";
-                        var option2 ={
-                            method : "POST",
-                            headers: {"content-type": "application/json",
-                            "Authorization": `Bearer ${data.token}`
-                        },
-                            body: ""
-                        }
-
-                        fetch(url2,option2)
-                        .then((res)=>{
-                            return res;
-                        }).then((data2)=>{
-                            console.log(data2)
-                        }).catch((err)=>{
-                            console.log(err);
-                        })
-                    }
-                    else{
-                        alert(data.message);
-                    }
-                }).catch((err)=>{
-                    console.log(err);
-                });
-            }
-            else{
-                alert("Pls fill form correctly")
-            }
-        }
-
-        
     </script>
 
 </body>

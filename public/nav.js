@@ -2,7 +2,7 @@ var html = `
 
         <div class="nav-left">
             <img src="/img/nav/logo.png" alt="burger house| burger bread logo">
-            Burger Bread
+            Burger House
         </div>
         <div class="nav-right">
             <ul>
@@ -62,7 +62,10 @@ function showminisidenav() {
 }
 
 if(window.location.pathname == "/"){
-    document.querySelector("nav").style.backgroundColor = "#fbfbfb26";
+    document.querySelector("nav").style.backgroundColor = "#0a0a0a38";
+    document.querySelector("nav").style.top = "5vh";
+    document.querySelector("nav").style.width = "80vw";
+    document.querySelector("nav").style.left = "10vw";
     document.querySelector("nav").style.color = "white";
     var span = document.querySelectorAll("#mini-nav-menu span");
     var hh = document.querySelectorAll("nav a");
@@ -77,16 +80,13 @@ if(window.location.pathname == "/"){
 var scrolltot = document.createElement("div");
 scrolltot.setAttribute("class", "to-top");
 scrolltot.setAttribute("id", "scrollup");
-scrolltot.innerHTML = `<span>&#x25b3;</span>`;
+scrolltot.innerHTML = `<span>&#8896;</span>`;
 
 scrolltot.addEventListener("click", scrollup);
-/*
-`<div class="to-top" id="scrollup" onclick="scrollup()">
-        
-    </div>`;*/
+
 
 var body = document.querySelector("body");
-body.insertBefore(scrolltot, nav);
+body.appendChild(scrolltot);
 
 window.onscroll = function () {
     scrollshow()
@@ -135,7 +135,7 @@ var footerdiv = `
                     <a href="tel:08034289463"><li style="color: #FF5722;"><img src="/img/nav/phone.png" alt="burgerhouse phone number"></li></a>
                     <a href="https://wa.me/080***?text="><li><img src="/img/nav/whatsapp.png" alt="burgerhouse whatsapp"></li></a>
                     <a href="https://instagram.com/burgerHouse"><li><img src="/img/nav/instagram.png" alt="burgerhouse instagram"></li></a>
-                    <a href="https://burgerhouse@yahoo.com"><li><img src="/img/nav/yahoo.png" alt="burgerhouse yahoo mail"></li></a>
+                    <a href="mailto:burgerhouse@yahoo.com"><li><img src="/img/nav/yahoo.png" alt="burgerhouse yahoo mail"></li></a>
             </div>
         </div>
         <div class="built">

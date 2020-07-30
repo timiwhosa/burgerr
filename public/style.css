@@ -32,15 +32,15 @@ img{
 .to-top{
     position: fixed;
     display: none;
-    bottom: 20px;
+    bottom: 13px;
     right: 4vw;
     cursor: pointer;
     padding: 10px;
     font-size: 5vw;
     justify-content: center;
     align-items: center;
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     /* border-radius: 50%; */
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
@@ -48,7 +48,7 @@ img{
     box-shadow: 0 2px 6px 0 var(--bsh);
     color: #ffffff;
     font-size: 20px;
-    line-height: 30px;
+    line-height: 40px;
     z-index: 99999999999999999999999;
 }
 /* .to-top span{
@@ -65,6 +65,7 @@ nav{
     z-index: 99;
     height: 65px;
     width: 100vw;
+    transition: all ease-out .5s;
 }
 nav a{
     color: black;
@@ -165,7 +166,7 @@ button{
     margin-top: -65px;
 }
 #slider-img1{
-    left: -100%;
+    /* left: -100%; */
     z-index: 1;
 }
 #slider-img2{
@@ -178,7 +179,8 @@ button{
 }
 .slider img{
     height: 100%;
-    width: auto;
+    /* width: auto; */
+    object-fit: cover;
     min-width: 100%;
     position: absolute;
     transition: all ease-in-out 1.5s;
@@ -191,7 +193,7 @@ button{
     width: 100vw;
     height: 100%;
     color: white;
-    background-color: var(--bgc);
+    background-color: #00000096;
     padding: 10vw;
     z-index: 8;
 }
@@ -212,6 +214,43 @@ button{
 }
 .container{
     overflow: hidden;
+}
+.headlines{
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    grid-gap: 3vw;
+    margin:25vh 2vw;
+    /* height: 40vh; */
+}
+.headl{
+    display: block;
+    position: relative;
+    height: 40vh;
+    overflow: hidden;
+}
+.headl img{
+    width: 100%;
+    height: 100%;
+    height: 40vh;
+    transition: all ease-in-out .4s;
+    /* max-width: 200px; */
+}
+.headl a:hover >img{
+    width: 120%;
+    height: 120%;
+    margin: -10% 0 0 -10%;
+}
+.headl p{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    width: fit-content;
+    min-width: 120px;
+    background: #00000045;
 }
 .container h3{
     font-size: 20px;
@@ -237,6 +276,7 @@ button{
 .product-offered-title{
     /* visibility: hidden; */
     width: fit-content;
+    max-width: 189px;
     padding: 5px 10px;
     background-color: white;
     box-shadow: -2px -2px 2px var(--bsh);
@@ -265,7 +305,7 @@ button{
     /* grid-area: three; */
     grid-row: 1/3;
     grid-column: 3/5;
-    background-image: url("/img/product/Beef-Shawarma.jpg");
+    background-image: url("/img/product/Beef-shawarma.jpg");
 }
 .product-offered:nth-child(4){
     /* grid-area: four; */
@@ -288,9 +328,25 @@ button{
 .product-offered:hover .product-offered-title{
     visibility: visible;
 }
+
+.serv{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    margin: 0 2vw ;
+    min-height: 80vh;
+    grid-gap: 2vw;
+}
+.serv >div{
+    max-height: 70vh;
+}
+.serv img{
+    height: 100%;
+    max-height: 70vh;
+}
 .our-services{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .our-services ul li{
     padding: 10px 0;
@@ -308,6 +364,7 @@ button{
 }
 .contact-details{
     width: fit-content;
+    max-width: 250px;
     margin: 0 auto 5vh;
 }
 .contact-details p{
@@ -764,7 +821,40 @@ form textarea, .form textarea{
     background-color: black;
     color: white;
 }
-
+.abd{
+    margin: 0 2vw;
+    display: grid;
+    grid-gap: 2vw;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.abd p{
+    font-size: 20px;
+}
+.abdl{
+    display: flex;
+    align-items: center;
+}
+.abdl div p{
+    line-height: 25px;
+    padding: 4vh 0;
+}
+.abdl div p:nth-child(1)::first-letter{
+    font-size: 3rem;
+    font-family: serif;
+}
+.abdl div p:last-child{
+    display: flex;
+    justify-content: flex-end;
+}
+.abdl div p a button{
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
 footer{
     display: block;
     background-color: #000000e0;
@@ -812,7 +902,7 @@ footer a{
     padding: 5px 0 5px 10px ;
 }
 .built a{
-    color: rgba(255, 86, 34, 0.808);
+    color: #2196f3;
 }
 @media screen and (max-width: 480px){
     :root{
@@ -855,6 +945,9 @@ footer a{
         margin: 0 2vw;
         width: 96vw;
     }
+    .headlines{
+        margin-top: 15vh;
+    }
     /* SINGLE PAGE */
     .single img{
         width: 100vw;
@@ -871,6 +964,12 @@ footer a{
         display: block;
         width: 100%;
         text-align: center;
+    }
+    .footer-right img{
+        width: 20px;
+    }
+    .footer-left-bottom{
+        font-size: 12px;
     }
     .built a{
         color: white

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Burger bread about page">
+    <meta name="keywords" content="bread, burger, burger house, cart,nigeria bread, bread in nigeria, best breads, akure, breads in akure, bakery">
+    <meta name="author" content="@ifo_tim">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger PAN Bread | About</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        :root{
+            --wid: 20vw;
+        }
+        .cont-top{
+            width: 70vw;
+            margin: 5vh auto;
+            display: grid;
+            grid-gap: 2vw;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        .cont-top img{
+            width: 250px;
+            height: 250px;
+            justify-self: flex-end;
+            display: flex;
+        }
+        .cont-top-left{
+            display: grid;
+            grid-template-columns: 1fr;
+            width: 250px;
+            grid-gap: 2vw;
+        }
+        .cont-top-left h2::first-letter{
+            font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .cont-top-left p{
+            line-height: 25px;
+            font-size: 18px;
+            padding: 20px 0;
+        }
+        .cont-top-left .slugan{
+            font-size: 15px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            padding: 10px 10px 20px;
+        }
+        .cont-middle1{
+            width: auto;
+        }
+        .cont-middle1 h3, .cont-middle h3, .contact-us h3{
+            margin-left: var(--wid);
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 25px;
+            font-weight: 100;
+            padding: 10px 0;
+        }
+        .cont-middle h3{
+            margin-left: 0;
+        }
+        
+        .cont-middle1 p i{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 16px;
+        }
+        .cont-middle1 p:nth-child(2) i{
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .cont-middle1 p {
+            margin: 5px var(--wid);
+            line-height: 30px;
+            padding: 10px 0;
+            font-size: 18px;
+        }
+        .dateim{
+            background-image: url("/img/illustration/event.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100vw;
+            height: 30vh;
+        }
+        .cont-middle{
+            margin: 5vh var(--wid);
+        }
+        .cont-middle p{
+            padding: 20px 0;
+            line-height: 30px;
+        }
+        .cont-middle ul{
+            margin-left: 10vw;
+            line-height: 25px;
+        }
+        .cont-middle ul li{
+            font-family: serif;
+            font-size: 18px;
+        }
+        @media screen and (max-width: 480px){
+            :root{
+                --wid: 2vw;
+            }
+            .cont-top{
+                width: auto;
+                margin: 5vh 2vw;
+            }
+            .cont-top img{
+                justify-self: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="general-info" id="general-info"></div>
+    <div id="menu" class="menu"></div>
+    <nav> </nav>
+    <div class="container2">
+        <div class="cont-top">
+            <img src="/img/illustration/pancake.png" alt="burger house burger bread">
+            <div class="cont-top-left">
+                <h2>Burger House Bakery</h2>
+                <p class="slugan"><i> Come now and have the feelings of good taste</i></p>
+                <hr style="width: 50px; height: 5px; background-color: black;">
+                <p>
+                    Burger house Bakery is a food production company that involves in production
+                    of good and quality bread, doughnut, chin chin, cup cake, pea nuts and the likes...
+                </p>
+                <p>
+                    Spread love with friends and family..
+                </p>
+            </div>
+        </div>
+        <div class="cont-middle1">
+            <h3>Since 2007</h3>
+            <p>
+               <i>We are proud to  have been serving the people for over 13 years</i>
+            </p>
+            <p>
+                It resonate very nice with the fact of how universally cozy and welcoming our atmosphere is and the quality of our services. <i> All our customers say that just one Bite of our product, they feel like having it all.</i> <br>
+                These  are sweet words, which just melt our hearts with joy.
+            </p>
+            <div class="dateim"></div>
+        </div>
+        <div class="cont-middle">
+            <h3>Our Location</h3>
+            <p>
+                We are located at No .. , beside Mobil filling station, ilesha garage, Akure, Nigeria.
+            </p>
+            <p>
+                Other locations: <br>
+                There is always a branch close to you
+                <ul>
+                    <li>-Ilesha garage</li>
+                    <li>-Shoprite</li>
+                    <li>-Futa south gate</li>
+                    <li>-Futa North gate</li>
+                </ul>
+                <br>
+                Come check us out... we are happy to meet you
+            </p>
+        </div>
+        <div class="contact-us" id="contact">
+            <h3>Contact us</h3>
+            <div class="" style="margin: 10vh 0;text-align: center;">
+                <h4 style="padding: 10px 0;">We Really love to hear from you</h4>
+                <p>Your opinion matters to us</p>
+            </div>
+            <div class="contact-details">
+                <p><a href="tel:08034289463">Tel: 08034289463</a></p>
+                <p><a href="tel:08034331871">Tel: 08034331871</a></p>
+                <p><a href="mailto:burgerhouse@yahoo.com">burgerhouse@yahoo.com</a></p>
+            </div>
+            <br>
+            <p style="text-align: center;font-size: 20px; font-weight: 600;color: #FF5722;">OR</p>
+            <br>
+            <div class="contact-us-div">
+                <p style="font-size: 17px; font-weight: 600;">Leave us a message</p>
+                <div class="">
+                    <div class="">
+                        <p>Name:</p>
+                        <input type="text" name="" id="name" placeholder="Name pls" maxlength="30">
+                    </div>
+                    <div class="">
+                        <p>Phone number:</p>
+                        <input type="number" name="" id="phone" placeholder="080******" maxlength="16">
+                    </div>
+                </div>
+                <textarea name="" id="contact-message" cols="20" rows="10" placeholder="Message" maxlength="700"></textarea>
+                <button onclick="contactus()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        String.prototype.escape = function(){
+            var tagtoreplace = {
+                "&":"&amp;",
+                "<":"&lt",
+                ">":"&gt",
+                "script":" ",
+                "Script":" ",
+                '"':" ",
+                "`":" "
+            };
+            return this.replace(/[&<>`]/g, function(tag){
+                return tagtoreplace[tag] || tag;
+            });
+        }
+
+        function contactus(){
+            var name = document.getElementById("name").value.escape();
+            var phone = document.getElementById("phone").value;
+            var message = document.getElementById("contact-message").value.escape();
+
+            var url = "/contactus"
+            var option = {
+                    method : "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        name, phone,message
+                    })
+                }
+            if(name.trim()!="" && phone.trim()!="" && message.trim()!=""){
+                fetch(url, option).then((res)=>{
+                    return res.json();
+                }).then((data)=>{
+                    alert(data.message);
+                }).catch((err)=>{
+                    console.log(err);
+                })
+            }
+            else{
+                alert("We are always here for you.. Pls help fill all contact fields")
+            }
+        }
+    </script>
+    <!-- script -->
+    <script src="/index.js"></script>
+    <script src="/nav.js"></script>
+</body>
+</html>

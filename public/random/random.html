@@ -652,7 +652,7 @@
 
                 p5.textContent = data[i].product[data[i].allproduct[p]].description.escape();
                 p6.textContent = "N";
-                p6.textContent += data[i].product[data[i].allproduct[p]].price.escape();
+                p6.textContent += data[i].product[data[i].allproduct[p]].price.toString().escape();
                 p6.textContent += " each";
                 p7.textContent = "Quantity";
                 p8.textContent = data[i].product[data[i].allproduct[p]].incart;
@@ -764,7 +764,7 @@
 
                 p5.textContent = data[i].product[data[i].allproduct[p]].description.escape();
                 p6.textContent = "N";
-                p6.textContent += data[i].product[data[i].allproduct[p]].price.escape();
+                p6.textContent += data[i].product[data[i].allproduct[p]].price.toString().escape();
                 p6.textContent += " each";
                 p7.textContent = "Quantity";
                 p8.textContent = data[i].product[data[i].allproduct[p]].incart;
@@ -876,7 +876,7 @@
 
                 p5.textContent = data[i].product[data[i].allproduct[p]].description.escape();
                 p6.textContent = "N";
-                p6.textContent += data[i].product[data[i].allproduct[p]].price.escape();
+                p6.textContent += data[i].product[data[i].allproduct[p]].price.toString().escape();
                 p6.textContent += " each";
                 p7.textContent = "Quantity";
                 p8.textContent = data[i].product[data[i].allproduct[p]].incart;
@@ -1027,7 +1027,7 @@
 
             p1.textContent = data.productorder[j].product.escape();
             p2.textContent = "N";
-            p2.textContent += data.productorder[j].price.escape();
+            p2.textContent += data.productorder[j].price.toString().escape();
             p3.textContent = "ORDERS";
             p4.textContent = data.productorder[j].incart;
 

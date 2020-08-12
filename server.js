@@ -487,7 +487,7 @@ app.post("/visit/:data",checkrole, (req, res) => {
                   data[hh[m]][j].product[data[hh[m]][j].allproduct[k]]
                     .description.escape(),
                 price:
-                  data[hh[m]][j].product[data[hh[m]][j].allproduct[k]].price.escape(),
+                  data[hh[m]][j].product[data[hh[m]][j].allproduct[k]].price.toString().escape(),
                 image: data[hh[m]][j].product[data[hh[m]][j].allproduct[k]].img.escape(),
                 incart: parseInt(
                   data[hh[m]][j].product[data[hh[m]][j].allproduct[k]].incart
